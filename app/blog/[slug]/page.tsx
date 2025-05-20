@@ -9,7 +9,29 @@ interface BlogPostParams {
   };
 }
 
-export default function BlogPostPage({ params }: BlogPostParams) {
+export async function generateStaticParams() {
+  const blogPosts = [
+    {
+      slug: "why-soft-skills-are-the-secret-sauce-for-software-developers",
+    },
+    {
+      slug: "power-of-typescript",
+    },
+    {
+      slug: "optimizing-nextjs-applications",
+    },
+    {
+      slug: "creating-custom-hooks-in-react",
+    },
+  ];
+
+  return blogPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
+export default async function BlogPostPage({ params }: BlogPostParams) {
+  const { slug } = await params;
   const blogPosts = [
     {
       title: "Why Soft Skills are the Secret Sauce for Software Developers",
@@ -276,7 +298,7 @@ export default function BlogPostPage({ params }: BlogPostParams) {
     },
   ];
 
-  const post = blogPosts.find((post) => post.slug === params.slug);
+  const post = blogPosts.find((post) => post.slug === slug);
 
   if (!post) {
     return (

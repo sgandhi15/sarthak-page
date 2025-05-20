@@ -1,15 +1,48 @@
-"use client"
+import Image from "next/image";
+import Link from "next/link";
+import {
+  ArrowLeft,
+  Github,
+  ExternalLink,
+  Calendar,
+  Clock,
+  Code,
+  Server,
+  Database,
+  Layers,
+} from "lucide-react";
+import GlitchText from "@/components/shared/glitch-text";
 
-import { useState, useEffect } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { useParams } from "next/navigation"
-import { ArrowLeft, Github, ExternalLink, Calendar, Clock, Code, Server, Database, Layers } from "lucide-react"
-import GlitchText from "@/components/shared/glitch-text"
-import { usePortfolio } from "@/components/providers"
+interface TechStack {
+  frontend?: string[];
+  backend?: string[];
+  database?: string[];
+  deployment?: string[];
+  storage?: string[];
+  content?: string[];
+}
+
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  tags: string[];
+  github: string;
+  demo: string;
+  slug: string;
+  date: string;
+  duration: string;
+  role: string;
+  client: string;
+  detailedDescription: string;
+  features: string[];
+  challenges: string;
+  techStack: TechStack;
+  screenshots: Array<{ url: string; caption: string }>;
+}
 
 // This would typically come from a database or API
-const projectsData = [
+const projectsData: Project[] = [
   {
     title: "E-Commerce Platform",
     description:
@@ -63,7 +96,8 @@ const projectsData = [
   },
   {
     title: "Task Management App",
-    description: "A collaborative task management application with real-time updates and team workspaces.",
+    description:
+      "A collaborative task management application with real-time updates and team workspaces.",
     image: "/placeholder.svg",
     tags: ["Next.js", "TypeScript", "Prisma", "Socket.io"],
     github: "#",
@@ -113,7 +147,8 @@ const projectsData = [
   },
   {
     title: "Finance Dashboard",
-    description: "An interactive dashboard for tracking financial data with charts, filters, and data visualization.",
+    description:
+      "An interactive dashboard for tracking financial data with charts, filters, and data visualization.",
     image: "/placeholder.svg",
     tags: ["React", "D3.js", "Express", "PostgreSQL"],
     github: "#",
@@ -163,7 +198,8 @@ const projectsData = [
   },
   {
     title: "AI Content Generator",
-    description: "A tool that uses AI to generate blog posts, social media content, and marketing copy.",
+    description:
+      "A tool that uses AI to generate blog posts, social media content, and marketing copy.",
     image: "/placeholder.svg",
     tags: ["Next.js", "OpenAI API", "TailwindCSS", "Vercel AI SDK"],
     github: "#",
@@ -214,7 +250,8 @@ const projectsData = [
   },
   {
     title: "Real-time Chat Application",
-    description: "A real-time messaging platform with channels, direct messages, and file sharing capabilities.",
+    description:
+      "A real-time messaging platform with channels, direct messages, and file sharing capabilities.",
     image: "/placeholder.svg",
     tags: ["React", "Firebase", "WebSockets", "Redux"],
     github: "#",
@@ -251,7 +288,11 @@ const projectsData = [
     `,
     techStack: {
       frontend: ["React", "Redux", "Styled Components"],
-      backend: ["Firebase Realtime Database", "Firebase Authentication", "Cloud Functions"],
+      backend: [
+        "Firebase Realtime Database",
+        "Firebase Authentication",
+        "Cloud Functions",
+      ],
       storage: ["Firebase Storage for file uploads"],
       deployment: ["Firebase Hosting", "GitHub Actions"],
     },
@@ -264,7 +305,8 @@ const projectsData = [
   },
   {
     title: "Portfolio Website Template",
-    description: "A customizable portfolio template for developers to showcase their work and skills.",
+    description:
+      "A customizable portfolio template for developers to showcase their work and skills.",
     image: "/placeholder.svg",
     tags: ["Next.js", "TailwindCSS", "Framer Motion", "TypeScript"],
     github: "#",
@@ -313,38 +355,23 @@ const projectsData = [
       { url: "/placeholder.svg", caption: "Contact Form" },
     ],
   },
-]
+];
 
-export default function ProjectDetailPage() {
-  const { setCursorType } = usePortfolio()
-  const { slug } = useParams()
-  const [project, setProject] = useState<any>(null)
-  const [loading, setLoading] = useState(true)
+export async function generateStaticParams() {
+  return projectsData.map((project) => ({
+    slug: project.slug,
+  }));
+}
 
-  useEffect(() => {
-    // In a real app, this would be an API call
-    const foundProject = projectsData.find((p) => p.slug === slug)
-    setProject(foundProject)
-    setLoading(false)
-  }, [slug])
+interface ProjectParams {
+  params: {
+    slug: string;
+  };
+}
 
-  if (loading) {
-    return (
-      <div className="pt-20">
-        <div className="container mx-auto px-4 py-20">
-          <div className="animate-pulse">
-            <div className="h-8 bg-[#1A1A1A] rounded w-1/4 mb-6"></div>
-            <div className="h-12 bg-[#1A1A1A] rounded w-3/4 mb-8"></div>
-            <div className="h-64 bg-[#1A1A1A] rounded mb-8"></div>
-            <div className="h-4 bg-[#1A1A1A] rounded mb-2"></div>
-            <div className="h-4 bg-[#1A1A1A] rounded mb-2"></div>
-            <div className="h-4 bg-[#1A1A1A] rounded mb-2"></div>
-            <div className="h-4 bg-[#1A1A1A] rounded w-2/3"></div>
-          </div>
-        </div>
-      </div>
-    )
-  }
+export default async function ProjectDetailPage({ params }: ProjectParams) {
+  const { slug } = await params;
+  const project = projectsData.find((p) => p.slug === slug);
 
   if (!project) {
     return (
@@ -352,7 +379,9 @@ export default function ProjectDetailPage() {
         <section className="py-20">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-3xl font-bold mb-4">Project Not Found</h1>
-            <p className="mb-8">The project you're looking for doesn't exist.</p>
+            <p className="mb-8">
+              The project you're looking for doesn't exist.
+            </p>
             <Link
               href="/projects"
               className="bg-green-400 text-[#121212] px-6 py-3 font-space text-sm inline-flex items-center"
@@ -363,7 +392,7 @@ export default function ProjectDetailPage() {
           </div>
         </section>
       </div>
-    )
+    );
   }
 
   return (
@@ -374,8 +403,6 @@ export default function ProjectDetailPage() {
             <Link
               href="/projects"
               className="inline-flex items-center text-green-400 hover:text-green-300 transition-colors mb-6"
-              onMouseEnter={() => setCursorType("hover")}
-              onMouseLeave={() => setCursorType("default")}
             >
               <ArrowLeft className="w-4 h-4 mr-2" />
               <span className="font-space text-sm">Back to Projects</span>
@@ -386,7 +413,10 @@ export default function ProjectDetailPage() {
             <div className="mb-8">
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tags.map((tag: string, tagIndex: number) => (
-                  <span key={tagIndex} className="text-xs bg-[#232323] text-green-400 px-2 py-1 font-space">
+                  <span
+                    key={tagIndex}
+                    className="text-xs bg-[#232323] text-green-400 px-2 py-1 font-space"
+                  >
                     {tag}
                   </span>
                 ))}
@@ -428,8 +458,6 @@ export default function ProjectDetailPage() {
                 <Link
                   href={project.github}
                   className="bg-[#1A1A1A] p-2 text-green-400 hover:bg-green-400 hover:text-[#1A1A1A] transition-colors flex items-center"
-                  onMouseEnter={() => setCursorType("hover")}
-                  onMouseLeave={() => setCursorType("default")}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -439,8 +467,6 @@ export default function ProjectDetailPage() {
                 <Link
                   href={project.demo}
                   className="bg-[#1A1A1A] p-2 text-green-400 hover:bg-green-400 hover:text-[#1A1A1A] transition-colors flex items-center"
-                  onMouseEnter={() => setCursorType("hover")}
-                  onMouseLeave={() => setCursorType("default")}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -453,34 +479,46 @@ export default function ProjectDetailPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
               <div className="bg-[#1A1A1A] p-6 relative">
                 <div className="absolute -top-2 left-4 bg-[#121212] px-2 z-10">
-                  <span className="text-[10px] text-gray-500 font-space">Project Info</span>
+                  <span className="text-[10px] text-gray-500 font-space">
+                    Project Info
+                  </span>
                 </div>
-                <h3 className="font-jetbrains text-green-400 mb-4">Project Details</h3>
+                <h3 className="font-jetbrains text-green-400 mb-4">
+                  Project Details
+                </h3>
                 <div className="space-y-3 text-sm">
                   <div className="grid grid-cols-3 gap-2">
                     <span className="text-gray-400">
-                      <span className="text-xs text-gray-500 font-space block mb-1">project.client:</span>
+                      <span className="text-xs text-gray-500 font-space block mb-1">
+                        project.client:
+                      </span>
                       Client
                     </span>
                     <span className="col-span-2">{project.client}</span>
                   </div>
                   <div className="grid grid-cols-3 gap-2">
                     <span className="text-gray-400">
-                      <span className="text-xs text-gray-500 font-space block mb-1">project.role:</span>
+                      <span className="text-xs text-gray-500 font-space block mb-1">
+                        project.role:
+                      </span>
                       My Role
                     </span>
                     <span className="col-span-2">{project.role}</span>
                   </div>
                   <div className="grid grid-cols-3 gap-2">
                     <span className="text-gray-400">
-                      <span className="text-xs text-gray-500 font-space block mb-1">project.date:</span>
+                      <span className="text-xs text-gray-500 font-space block mb-1">
+                        project.date:
+                      </span>
                       Date
                     </span>
                     <span className="col-span-2">{project.date}</span>
                   </div>
                   <div className="grid grid-cols-3 gap-2">
                     <span className="text-gray-400">
-                      <span className="text-xs text-gray-500 font-space block mb-1">project.duration:</span>
+                      <span className="text-xs text-gray-500 font-space block mb-1">
+                        project.duration:
+                      </span>
                       Duration
                     </span>
                     <span className="col-span-2">{project.duration}</span>
@@ -490,9 +528,13 @@ export default function ProjectDetailPage() {
 
               <div className="bg-[#1A1A1A] p-6 relative">
                 <div className="absolute -top-2 left-4 bg-[#121212] px-2 z-10">
-                  <span className="text-[10px] text-gray-500 font-space">Tech Stack</span>
+                  <span className="text-[10px] text-gray-500 font-space">
+                    Tech Stack
+                  </span>
                 </div>
-                <h3 className="font-jetbrains text-green-400 mb-4">Technologies Used</h3>
+                <h3 className="font-jetbrains text-green-400 mb-4">
+                  Technologies Used
+                </h3>
                 <div className="space-y-4">
                   <div>
                     <div className="flex items-center mb-2">
@@ -500,11 +542,16 @@ export default function ProjectDetailPage() {
                       <span className="text-sm font-bold">Frontend</span>
                     </div>
                     <div className="flex flex-wrap gap-2">
-                      {project.techStack.frontend.map((tech: string, index: number) => (
-                        <span key={index} className="text-xs bg-[#232323] text-green-400 px-2 py-1 font-space">
-                          {tech}
-                        </span>
-                      ))}
+                      {project.techStack.frontend?.map(
+                        (tech: string, index: number) => (
+                          <span
+                            key={index}
+                            className="text-xs bg-[#232323] text-green-400 px-2 py-1 font-space"
+                          >
+                            {tech}
+                          </span>
+                        )
+                      )}
                     </div>
                   </div>
                   <div>
@@ -513,11 +560,16 @@ export default function ProjectDetailPage() {
                       <span className="text-sm font-bold">Backend</span>
                     </div>
                     <div className="flex flex-wrap gap-2">
-                      {project.techStack.backend.map((tech: string, index: number) => (
-                        <span key={index} className="text-xs bg-[#232323] text-green-400 px-2 py-1 font-space">
-                          {tech}
-                        </span>
-                      ))}
+                      {project.techStack.backend?.map(
+                        (tech: string, index: number) => (
+                          <span
+                            key={index}
+                            className="text-xs bg-[#232323] text-green-400 px-2 py-1 font-space"
+                          >
+                            {tech}
+                          </span>
+                        )
+                      )}
                     </div>
                   </div>
                   {project.techStack.database && (
@@ -527,11 +579,16 @@ export default function ProjectDetailPage() {
                         <span className="text-sm font-bold">Database</span>
                       </div>
                       <div className="flex flex-wrap gap-2">
-                        {project.techStack.database.map((tech: string, index: number) => (
-                          <span key={index} className="text-xs bg-[#232323] text-green-400 px-2 py-1 font-space">
-                            {tech}
-                          </span>
-                        ))}
+                        {project.techStack.database.map(
+                          (tech: string, index: number) => (
+                            <span
+                              key={index}
+                              className="text-xs bg-[#232323] text-green-400 px-2 py-1 font-space"
+                            >
+                              {tech}
+                            </span>
+                          )
+                        )}
                       </div>
                     </div>
                   )}
@@ -541,11 +598,16 @@ export default function ProjectDetailPage() {
                       <span className="text-sm font-bold">Deployment</span>
                     </div>
                     <div className="flex flex-wrap gap-2">
-                      {project.techStack.deployment.map((tech: string, index: number) => (
-                        <span key={index} className="text-xs bg-[#232323] text-green-400 px-2 py-1 font-space">
-                          {tech}
-                        </span>
-                      ))}
+                      {project.techStack.deployment?.map(
+                        (tech: string, index: number) => (
+                          <span
+                            key={index}
+                            className="text-xs bg-[#232323] text-green-400 px-2 py-1 font-space"
+                          >
+                            {tech}
+                          </span>
+                        )
+                      )}
                     </div>
                   </div>
                 </div>
@@ -554,15 +616,21 @@ export default function ProjectDetailPage() {
 
             <div className="mb-8">
               <div className="text-xs text-gray-500 font-space mb-2">
-                <span className="code-comment">// project.detailedDescription</span>
+                <span className="code-comment">
+                  // project.detailedDescription
+                </span>
               </div>
-              <h2 className="text-2xl font-bold mb-4 font-jetbrains">Project Overview</h2>
+              <h2 className="text-2xl font-bold mb-4 font-jetbrains">
+                Project Overview
+              </h2>
               <div className="prose prose-invert prose-green max-w-none font-space">
-                {project.detailedDescription.split("\n").map((paragraph: string, index: number) => (
-                  <p key={index} className="mb-4">
-                    {paragraph.trim()}
-                  </p>
-                ))}
+                {project.detailedDescription
+                  .split("\n")
+                  .map((paragraph: string, index: number) => (
+                    <p key={index} className="mb-4">
+                      {paragraph.trim()}
+                    </p>
+                  ))}
               </div>
             </div>
 
@@ -570,7 +638,9 @@ export default function ProjectDetailPage() {
               <div className="text-xs text-gray-500 font-space mb-2">
                 <span className="code-comment">// project.features</span>
               </div>
-              <h2 className="text-2xl font-bold mb-4 font-jetbrains">Key Features</h2>
+              <h2 className="text-2xl font-bold mb-4 font-jetbrains">
+                Key Features
+              </h2>
               <ul className="space-y-2 list-disc list-inside">
                 {project.features.map((feature: string, index: number) => (
                   <li key={index} className="text-gray-300">
@@ -584,13 +654,17 @@ export default function ProjectDetailPage() {
               <div className="text-xs text-gray-500 font-space mb-2">
                 <span className="code-comment">// project.challenges</span>
               </div>
-              <h2 className="text-2xl font-bold mb-4 font-jetbrains">Challenges & Solutions</h2>
+              <h2 className="text-2xl font-bold mb-4 font-jetbrains">
+                Challenges & Solutions
+              </h2>
               <div className="prose prose-invert prose-green max-w-none font-space">
-                {project.challenges.split("\n").map((paragraph: string, index: number) => (
-                  <p key={index} className="mb-4">
-                    {paragraph.trim()}
-                  </p>
-                ))}
+                {project.challenges
+                  .split("\n")
+                  .map((paragraph: string, index: number) => (
+                    <p key={index} className="mb-4">
+                      {paragraph.trim()}
+                    </p>
+                  ))}
               </div>
             </div>
 
@@ -598,7 +672,9 @@ export default function ProjectDetailPage() {
               <div className="text-xs text-gray-500 font-space mb-2">
                 <span className="code-comment">// project.screenshots</span>
               </div>
-              <h2 className="text-2xl font-bold mb-4 font-jetbrains">Project Screenshots</h2>
+              <h2 className="text-2xl font-bold mb-4 font-jetbrains">
+                Project Screenshots
+              </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {project.screenshots.map((screenshot: any, index: number) => (
                   <div key={index} className="bg-[#1A1A1A] p-2 relative">
@@ -609,7 +685,9 @@ export default function ProjectDetailPage() {
                       height={400}
                       className="w-full h-auto"
                     />
-                    <p className="text-center text-sm text-gray-400 mt-2">{screenshot.caption}</p>
+                    <p className="text-center text-sm text-gray-400 mt-2">
+                      {screenshot.caption}
+                    </p>
                   </div>
                 ))}
               </div>
@@ -619,8 +697,6 @@ export default function ProjectDetailPage() {
               <Link
                 href="/projects"
                 className="bg-transparent border border-green-400 text-green-400 px-6 py-3 font-space text-sm inline-flex items-center hover:bg-green-400/10 transition-colors mr-4"
-                onMouseEnter={() => setCursorType("hover")}
-                onMouseLeave={() => setCursorType("default")}
               >
                 <ArrowLeft className="mr-2 w-4 h-4" />
                 Back to Projects
@@ -628,8 +704,6 @@ export default function ProjectDetailPage() {
               <Link
                 href={project.demo}
                 className="bg-green-400 text-[#121212] px-6 py-3 font-space text-sm inline-flex items-center hover:bg-green-500 transition-colors"
-                onMouseEnter={() => setCursorType("hover")}
-                onMouseLeave={() => setCursorType("default")}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -641,5 +715,5 @@ export default function ProjectDetailPage() {
         </div>
       </article>
     </div>
-  )
+  );
 }
