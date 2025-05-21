@@ -1,87 +1,69 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import { ArrowLeft, Github, ExternalLink } from "lucide-react"
-import GlitchText from "@/components/shared/glitch-text"
-import SearchBar from "@/components/shared/search-bar"
-import { usePortfolio } from "@/components/providers"
-import { fuzzySearch } from "@/utils/fuzzy-search"
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowLeft, Github, ExternalLink } from "lucide-react";
+import GlitchText from "@/components/shared/glitch-text";
+import SearchBar from "@/components/shared/search-bar";
+import { usePortfolio } from "@/components/providers";
+import { fuzzySearch } from "@/utils/fuzzy-search";
 
 // This would typically come from a database or API
 const allProjects = [
   {
-    title: "E-Commerce Platform",
+    title: "AWS Certified Cloud Practitioner (CLF-C02) Study Notes",
     description:
-      "A full-stack e-commerce platform with product management, cart functionality, and payment processing.",
+      "A collection of study notes for the AWS Certified Cloud Practitioner (CLF-C02) certification exam.",
     image: "/placeholder.svg",
-    tags: ["React", "Node.js", "MongoDB", "Stripe"],
+    tags: [
+      "AWS",
+      "Cloud",
+      "Certification",
+      "Study Notes",
+      "Cloud Practitioner",
+    ],
     github: "#",
     demo: "#",
-    slug: "e-commerce-platform",
+    slug: "aws-clf-c02-notes",
   },
   {
-    title: "Task Management App",
-    description: "A collaborative task management application with real-time updates and team workspaces.",
+    title: "Blog Comments Application",
+    description:
+      "A blog comments application built with React, Redux, and Axios, showcasing best practices in state management, API integration, and component architecture.",
     image: "/placeholder.svg",
-    tags: ["Next.js", "TypeScript", "Prisma", "Socket.io"],
+    tags: [
+      "React",
+      "Redux",
+      "Redux Thunk",
+      "Axios",
+      "Lodash",
+      "React Testing Library",
+    ],
     github: "#",
     demo: "#",
-    slug: "task-management-app",
+    slug: "blog-comments-application",
   },
-  {
-    title: "Finance Dashboard",
-    description: "An interactive dashboard for tracking financial data with charts, filters, and data visualization.",
-    image: "/placeholder.svg",
-    tags: ["React", "D3.js", "Express", "PostgreSQL"],
-    github: "#",
-    demo: "#",
-    slug: "finance-dashboard",
-  },
-  {
-    title: "AI Content Generator",
-    description: "A tool that uses AI to generate blog posts, social media content, and marketing copy.",
-    image: "/placeholder.svg",
-    tags: ["Next.js", "OpenAI API", "TailwindCSS", "Vercel AI SDK"],
-    github: "#",
-    demo: "#",
-    slug: "ai-content-generator",
-  },
-  {
-    title: "Real-time Chat Application",
-    description: "A real-time messaging platform with channels, direct messages, and file sharing capabilities.",
-    image: "/placeholder.svg",
-    tags: ["React", "Firebase", "WebSockets", "Redux"],
-    github: "#",
-    demo: "#",
-    slug: "real-time-chat-application",
-  },
-  {
-    title: "Portfolio Website Template",
-    description: "A customizable portfolio template for developers to showcase their work and skills.",
-    image: "/placeholder.svg",
-    tags: ["Next.js", "TailwindCSS", "Framer Motion", "TypeScript"],
-    github: "#",
-    demo: "#",
-    slug: "portfolio-website-template",
-  },
-]
+];
 
 export default function ProjectsPage() {
-  const { setCursorType } = usePortfolio()
-  const [searchQuery, setSearchQuery] = useState("")
-  const [filteredProjects, setFilteredProjects] = useState(allProjects)
+  const { setCursorType } = usePortfolio();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredProjects, setFilteredProjects] = useState(allProjects);
 
   const handleSearch = (query: string) => {
-    setSearchQuery(query)
+    setSearchQuery(query);
     if (!query) {
-      setFilteredProjects(allProjects)
+      setFilteredProjects(allProjects);
     } else {
-      const results = fuzzySearch(allProjects, query, ["title", "description", "tags"])
-      setFilteredProjects(results)
+      const results = fuzzySearch(allProjects, query, [
+        "title",
+        "description",
+        "tags",
+      ]);
+      setFilteredProjects(results);
     }
-  }
+  };
 
   return (
     <div className="pt-20">
@@ -109,11 +91,16 @@ export default function ProjectsPage() {
             </div>
           </div>
 
-          <SearchBar onSearch={handleSearch} placeholder="Search projects by title, description, or technology..." />
+          <SearchBar
+            onSearch={handleSearch}
+            placeholder="Search projects by title, description, or technology..."
+          />
 
           {filteredProjects.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-gray-400 mb-2">No projects found matching "{searchQuery}"</p>
+              <p className="text-gray-400 mb-2">
+                No projects found matching "{searchQuery}"
+              </p>
               <button
                 className="text-green-400 hover:text-green-300 transition-colors"
                 onClick={() => handleSearch("")}
@@ -180,10 +167,15 @@ export default function ProjectsPage() {
                     <div className="text-xs text-gray-500 font-space mb-1">
                       <span className="code-comment">{`projects[${index}].description`}</span>
                     </div>
-                    <p className="text-gray-400 text-sm mb-4">{project.description}</p>
+                    <p className="text-gray-400 text-sm mb-4">
+                      {project.description}
+                    </p>
                     <div className="flex flex-wrap gap-2 mb-4">
                       {project.tags.map((tag, tagIndex) => (
-                        <span key={tagIndex} className="text-xs bg-[#232323] text-green-400 px-2 py-1 font-space">
+                        <span
+                          key={tagIndex}
+                          className="text-xs bg-[#232323] text-green-400 px-2 py-1 font-space"
+                        >
                           {tag}
                         </span>
                       ))}
@@ -205,5 +197,5 @@ export default function ProjectsPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }

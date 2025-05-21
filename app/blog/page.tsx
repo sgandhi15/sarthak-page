@@ -1,92 +1,95 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Calendar, Clock, Tag, ArrowLeft, ArrowRight } from "lucide-react"
-import GlitchText from "@/components/shared/glitch-text"
-import SearchBar from "@/components/shared/search-bar"
-import { usePortfolio } from "@/components/providers"
-import { fuzzySearch } from "@/utils/fuzzy-search"
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Calendar, Clock, Tag, ArrowLeft, ArrowRight } from "lucide-react";
+import GlitchText from "@/components/shared/glitch-text";
+import SearchBar from "@/components/shared/search-bar";
+import { usePortfolio } from "@/components/providers";
+import { fuzzySearch } from "@/utils/fuzzy-search";
 
 // This would typically come from a database or API
 const allBlogPosts = [
   {
-    title: "Building Responsive UIs with React and Tailwind",
-    excerpt: "Learn how to create beautiful, responsive user interfaces using React and Tailwind CSS.",
+    title: "Why Soft Skills are the Secret Sauce for Software Developers",
+    excerpt:
+      "Discover why soft skills are crucial for software developers and how they can enhance your career success.",
     image: "/placeholder.svg",
-    date: "May 15, 2024",
-    readTime: "5 min read",
-    tags: ["React", "Tailwind", "UI/UX"],
-    slug: "building-responsive-uis",
-    content: "This is a placeholder for the full blog content...",
-  },
-  {
-    title: "The Power of TypeScript in Modern Web Development",
-    excerpt: "Discover how TypeScript can improve your development workflow and help catch errors early.",
-    image: "/placeholder.svg",
-    date: "April 28, 2024",
-    readTime: "7 min read",
-    tags: ["TypeScript", "JavaScript", "Development"],
-    slug: "power-of-typescript",
-    content: "This is a placeholder for the full blog content...",
-  },
-  {
-    title: "Optimizing Next.js Applications for Performance",
-    excerpt: "Explore techniques to optimize your Next.js applications for better performance and user experience.",
-    image: "/placeholder.svg",
-    date: "April 10, 2024",
+    date: "January 3, 2025",
     readTime: "8 min read",
-    tags: ["Next.js", "Performance", "Optimization"],
-    slug: "optimizing-nextjs-applications",
-    content: "This is a placeholder for the full blog content...",
+    tags: [
+      "Soft Skills",
+      "Communication",
+      "Teamwork",
+      "Time Management",
+      "Adaptability",
+      "Emotional Intelligence",
+      "Negotiation",
+    ],
+    slug: "why-soft-skills-are-the-secret-sauce-for-software-developers",
+    content: `# Why Soft Skills are the Secret Sauce for Software Developers
+
+## Introduction: The Power Behind the Code
+
+In software development, it's easy to focus on the technical side: coding, frameworks, algorithms. But in reality, **soft skills**—communication, collaboration, and adaptability—are just as crucial. Think of them like the seasoning in a good stew: essential, but often overlooked.
+
+In places like Newfoundland, we know the importance of community, adapting to change, and rolling with the punches. The same principles apply to being a great developer. Let's dive into why soft skills are key to success, whether you're working remotely or in the heart of a bustling tech hub.
+
+## 1. Communication Skills: More Than Just "How's It Going?"
+
+Good communication is at the heart of any great project. Whether you're explaining a bug to your team, presenting a solution to a client, or even documenting your code, the ability to clearly articulate ideas is essential. It's like explaining the perfect recipe—if you're too technical, people get lost. But when you break things down simply, everyone gets it. Clear communication helps you save time, avoid confusion, and make sure everyone's on the same page.
+
+## 2. Teamwork: Because "Together" is Always Better
+
+In tech, you're rarely ever alone. **Teamwork** is what transforms individual contributions into something greater. Whether you're working with other developers, designers, or product managers, collaboration is key to building solid solutions. It's like building a cabin together—each person has a vital role, and when everyone pitches in, you get a stronger end product.
+
+## 3. Time Management: Avoiding the "Last-Minute Scramble"
+
+Time management in software development is crucial. Whether you're working on a project with tight deadlines or balancing multiple tasks, keeping track of your time can make or break a project. Use tools like Trello, Jira, or even a simple to-do list to stay on top of your work. It's like managing a fishing trip: if you don't plan ahead, things can get chaotic. But when you know when to cast your line, you catch the biggest fish.
+
+## 4. Adaptability: Rolling with the Punches
+
+The tech world evolves faster than the weather in Newfoundland. One day you're working in one framework, the next you're learning something entirely new. Being **adaptable** is key to staying relevant. Embrace change, learn on the fly, and don't be afraid to pivot when necessary. It's like being prepared for a sudden rainstorm—stay flexible, and you'll be able to weather any storm.
+
+## 5. Emotional Intelligence: Staying Cool When Things Go Wrong
+
+Whether you're facing a tricky bug or a tight deadline, **emotional intelligence (EQ)** helps you navigate the ups and downs of software development. Managing your emotions and understanding others' perspectives can help keep the team morale high, even in stressful situations. It's like keeping your cool when the server crashes or the power goes out—staying calm helps you find the solution, and keeps the team moving forward.
+
+## 6. Negotiation: Getting What You Want, Without the "Hard Sell"
+
+Negotiation isn't just for salespeople. As a developer, you often find yourself negotiating timelines, features, or technical decisions. The key is to approach these conversations with respect and collaboration, not confrontation. It's like navigating a community potluck—everyone has different tastes, but finding a way to make everyone happy is what makes the experience worthwhile.
+
+## Conclusion: The Right Blend for Success
+
+Technical skills are important, but **soft skills** are what allow you to collaborate effectively, adapt to change, and handle the ups and downs of development. Whether you're debugging code, collaborating with a team, or managing deadlines, soft skills help you navigate the challenges of the development world with confidence.
+
+Just like a well-cooked stew, it's the right combination of skills that makes a great developer. So, invest in your soft skills, and you'll find yourself thriving not just as a coder, but as a collaborator, communicator, and problem-solver.
+
+## Call to Action:
+
+Start honing your **soft skills** today. Whether it's improving your communication, time management, or emotional intelligence, these skills will make a huge difference in your career. So go ahead—take the time to build them. And remember, like any great project, success in software development is about balance: technical proficiency and soft skills working hand in hand.`,
   },
-  {
-    title: "Creating Custom Hooks in React",
-    excerpt: "Learn how to create and use custom hooks to share logic between components in React.",
-    image: "/placeholder.svg",
-    date: "March 22, 2024",
-    readTime: "6 min read",
-    tags: ["React", "Hooks", "JavaScript"],
-    slug: "creating-custom-hooks",
-    content: "This is a placeholder for the full blog content...",
-  },
-  {
-    title: "Introduction to Server Components in Next.js",
-    excerpt: "Explore the new Server Components feature in Next.js and how it can improve your application.",
-    image: "/placeholder.svg",
-    date: "March 5, 2024",
-    readTime: "9 min read",
-    tags: ["Next.js", "React", "Server Components"],
-    slug: "server-components-nextjs",
-    content: "This is a placeholder for the full blog content...",
-  },
-  {
-    title: "Building a Full-Stack Application with Next.js and MongoDB",
-    excerpt: "A step-by-step guide to building a full-stack application using Next.js and MongoDB.",
-    image: "/placeholder.svg",
-    date: "February 18, 2024",
-    readTime: "12 min read",
-    tags: ["Next.js", "MongoDB", "Full-Stack"],
-    slug: "fullstack-nextjs-mongodb",
-    content: "This is a placeholder for the full blog content...",
-  },
-]
+];
 
 export default function BlogPage() {
-  const { setCursorType } = usePortfolio()
-  const [searchQuery, setSearchQuery] = useState("")
-  const [filteredPosts, setFilteredPosts] = useState(allBlogPosts)
+  const { setCursorType } = usePortfolio();
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredPosts, setFilteredPosts] = useState(allBlogPosts);
 
   const handleSearch = (query: string) => {
-    setSearchQuery(query)
+    setSearchQuery(query);
     if (!query) {
-      setFilteredPosts(allBlogPosts)
+      setFilteredPosts(allBlogPosts);
     } else {
-      const results = fuzzySearch(allBlogPosts, query, ["title", "excerpt", "tags"])
-      setFilteredPosts(results)
+      const results = fuzzySearch(allBlogPosts, query, [
+        "title",
+        "excerpt",
+        "tags",
+      ]);
+      setFilteredPosts(results);
     }
-  }
+  };
 
   return (
     <div className="pt-20">
@@ -114,11 +117,16 @@ export default function BlogPage() {
             </div>
           </div>
 
-          <SearchBar onSearch={handleSearch} placeholder="Search articles by title, content, or tag..." />
+          <SearchBar
+            onSearch={handleSearch}
+            placeholder="Search articles by title, content, or tag..."
+          />
 
           {filteredPosts.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-gray-400 mb-2">No articles found matching "{searchQuery}"</p>
+              <p className="text-gray-400 mb-2">
+                No articles found matching "{searchQuery}"
+              </p>
               <button
                 className="text-green-400 hover:text-green-300 transition-colors"
                 onClick={() => handleSearch("")}
@@ -183,7 +191,10 @@ export default function BlogPage() {
 
                     <div className="flex flex-wrap gap-2 mb-4">
                       {post.tags.map((tag, tagIndex) => (
-                        <span key={tagIndex} className="text-xs bg-[#232323] text-green-400 px-2 py-1 font-space">
+                        <span
+                          key={tagIndex}
+                          className="text-xs bg-[#232323] text-green-400 px-2 py-1 font-space"
+                        >
                           {tag}
                         </span>
                       ))}
@@ -206,5 +217,5 @@ export default function BlogPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }

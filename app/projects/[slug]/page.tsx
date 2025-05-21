@@ -20,6 +20,7 @@ interface TechStack {
   deployment?: string[];
   storage?: string[];
   content?: string[];
+  testing?: string[];
 }
 
 interface Project {
@@ -44,315 +45,110 @@ interface Project {
 // This would typically come from a database or API
 const projectsData: Project[] = [
   {
-    title: "E-Commerce Platform",
+    title: "AWS Certified Cloud Practitioner (CLF-C02) Study Notes",
     description:
-      "A full-stack e-commerce platform with product management, cart functionality, and payment processing.",
+      "A collection of study notes for the AWS Certified Cloud Practitioner (CLF-C02) certification exam.",
     image: "/placeholder.svg",
-    tags: ["React", "Node.js", "MongoDB", "Stripe"],
+    tags: [
+      "AWS",
+      "Cloud",
+      "Certification",
+      "Study Notes",
+      "Cloud Practitioner",
+    ],
     github: "#",
     demo: "#",
-    slug: "e-commerce-platform",
-    date: "June 2023",
-    duration: "3 months",
-    role: "Full Stack Developer",
-    client: "RetailTech Inc.",
+    slug: "aws-clf-c02-notes",
+    date: "March 2025",
+    duration: "Ongoing",
+    role: "Student",
+    client: "Personal Project",
     detailedDescription: `
-      This e-commerce platform provides a complete solution for online retailers. It includes product management, 
-      inventory tracking, shopping cart functionality, secure checkout with Stripe integration, and a comprehensive 
-      admin dashboard.
+      This is my personal collection of study materials and notes for the AWS Certified Cloud Practitioner (CLF-C02) certification exam. 
+      I created this repository to organize my learning journey and track my progress in understanding fundamental AWS cloud concepts, 
+      services, and best practices.
       
-      The platform is built with a React frontend and Node.js backend, with MongoDB as the database. It uses Redux 
-      for state management and features responsive design for optimal viewing on all devices.
+      The repository is structured to cover all major domains of the AWS Certified Cloud Practitioner exam, including Cloud Concepts, 
+      Security and Compliance, Technology, Billing and Pricing, and Support and Documentation.
     `,
     features: [
-      "User authentication and profile management",
-      "Product catalog with categories and search functionality",
-      "Shopping cart and wishlist",
-      "Secure payment processing with Stripe",
-      "Order tracking and history",
-      "Admin dashboard for product and order management",
-      "Inventory tracking and notifications",
-      "Analytics and reporting",
+      "Comprehensive study notes on AWS services and concepts",
+      "Exam preparation strategies and tips",
+      "Important AWS terminology and definitions",
+      "Best practices for cloud architecture",
+      "Cost optimization and security considerations",
+      "Regular updates as I continue learning",
     ],
     challenges: `
-      One of the main challenges was implementing real-time inventory updates across multiple concurrent sessions. 
-      This was solved by using WebSockets to push updates to all connected clients whenever inventory changes occurred.
+      The main challenge was organizing the vast amount of information in a way that's both comprehensive and easy to navigate. 
+      I structured the content to build upon fundamental concepts while maintaining clear connections between related topics.
       
-      Another challenge was optimizing the checkout process to minimize cart abandonment. We conducted extensive user 
-      testing and implemented a streamlined, single-page checkout flow that increased conversion rates by 15%.
+      Another challenge was keeping the content up-to-date with AWS's rapid pace of innovation and service updates. I implemented 
+      a regular review process to ensure the information remains current and relevant.
     `,
     techStack: {
-      frontend: ["React", "Redux", "TailwindCSS", "Framer Motion"],
-      backend: ["Node.js", "Express", "JWT Authentication"],
-      database: ["MongoDB", "Mongoose", "Redis for caching"],
-      deployment: ["AWS", "Docker", "CI/CD with GitHub Actions"],
+      frontend: ["Markdown", "GitHub Pages"],
+      content: ["AWS Documentation", "Official Study Guide", "Practice Exams"],
     },
     screenshots: [
-      { url: "/placeholder.svg", caption: "Product Listing Page" },
-      { url: "/placeholder.svg", caption: "Product Detail View" },
-      { url: "/placeholder.svg", caption: "Shopping Cart" },
-      { url: "/placeholder.svg", caption: "Admin Dashboard" },
+      { url: "/placeholder.svg", caption: "Study Notes Overview" },
+      { url: "/placeholder.svg", caption: "Cloud Concepts Section" },
+      { url: "/placeholder.svg", caption: "Security and Compliance Notes" },
+      { url: "/placeholder.svg", caption: "Technology Domain Coverage" },
     ],
   },
   {
-    title: "Task Management App",
+    title: "Blog Comments Application",
     description:
-      "A collaborative task management application with real-time updates and team workspaces.",
+      "A blog comments application built with React, Redux, and Axios, showcasing best practices in state management, API integration, and component architecture.",
     image: "/placeholder.svg",
-    tags: ["Next.js", "TypeScript", "Prisma", "Socket.io"],
+    tags: [
+      "React",
+      "Redux",
+      "Redux Thunk",
+      "Axios",
+      "Lodash",
+      "React Testing Library",
+    ],
     github: "#",
     demo: "#",
-    slug: "task-management-app",
-    date: "March 2023",
+    slug: "blog-comments-application",
+    date: "July 2020",
     duration: "2 months",
-    role: "Lead Developer",
-    client: "ProductivityPro",
-    detailedDescription: `
-      This task management application helps teams organize their work with a focus on collaboration and real-time updates. 
-      Users can create workspaces, projects, and tasks, assign them to team members, set deadlines, and track progress.
-      
-      The app features real-time updates using Socket.io, so all team members see changes instantly without needing to refresh. 
-      It also includes commenting on tasks, file attachments, and integration with popular calendar apps.
-    `,
-    features: [
-      "Team workspaces and project management",
-      "Task creation, assignment, and tracking",
-      "Real-time updates and notifications",
-      "Comments and discussions on tasks",
-      "File attachments and sharing",
-      "Calendar integration and deadline reminders",
-      "Progress tracking and reporting",
-      "Mobile-responsive design",
-    ],
-    challenges: `
-      The biggest challenge was implementing the real-time collaboration features while maintaining performance. 
-      We optimized our Socket.io implementation to only send necessary updates and used a combination of optimistic 
-      UI updates and server validation to ensure a smooth user experience.
-      
-      We also faced challenges with data synchronization across devices, which we solved by implementing a robust 
-      conflict resolution system that intelligently merges changes when conflicts occur.
-    `,
-    techStack: {
-      frontend: ["Next.js", "TypeScript", "TailwindCSS", "React Query"],
-      backend: ["Next.js API Routes", "Prisma ORM", "Socket.io"],
-      database: ["PostgreSQL", "Redis for real-time features"],
-      deployment: ["Vercel", "GitHub Actions for CI/CD"],
-    },
-    screenshots: [
-      { url: "/placeholder.svg", caption: "Dashboard View" },
-      { url: "/placeholder.svg", caption: "Task Board" },
-      { url: "/placeholder.svg", caption: "Task Detail with Comments" },
-      { url: "/placeholder.svg", caption: "Calendar Integration" },
-    ],
-  },
-  {
-    title: "Finance Dashboard",
-    description:
-      "An interactive dashboard for tracking financial data with charts, filters, and data visualization.",
-    image: "/placeholder.svg",
-    tags: ["React", "D3.js", "Express", "PostgreSQL"],
-    github: "#",
-    demo: "#",
-    slug: "finance-dashboard",
-    date: "January 2023",
-    duration: "2.5 months",
-    role: "Frontend Developer",
-    client: "FinTech Solutions",
-    detailedDescription: `
-      This finance dashboard provides users with a comprehensive view of their financial data through interactive 
-      charts, graphs, and tables. It allows for tracking expenses, income, investments, and financial goals.
-      
-      The dashboard features advanced filtering options, date range selection, and customizable views. Users can 
-      drill down into specific categories, compare time periods, and export reports in various formats.
-    `,
-    features: [
-      "Interactive charts and graphs using D3.js",
-      "Expense and income tracking",
-      "Investment portfolio monitoring",
-      "Budget planning and goal setting",
-      "Financial forecasting",
-      "Data export in CSV, PDF, and Excel formats",
-      "Custom date range selection",
-      "Category-based filtering and analysis",
-    ],
-    challenges: `
-      Creating performant data visualizations with large datasets was a significant challenge. We implemented 
-      data aggregation and caching strategies to ensure smooth rendering of charts even with thousands of data points.
-      
-      Another challenge was designing an intuitive interface that could present complex financial data in an 
-      accessible way. We conducted multiple rounds of user testing to refine the UI and ensure that users could 
-      easily understand their financial situation at a glance.
-    `,
-    techStack: {
-      frontend: ["React", "D3.js", "Recharts", "TailwindCSS"],
-      backend: ["Express", "Node.js", "JWT Authentication"],
-      database: ["PostgreSQL", "Sequelize ORM"],
-      deployment: ["AWS", "Docker", "Terraform"],
-    },
-    screenshots: [
-      { url: "/placeholder.svg", caption: "Main Dashboard" },
-      { url: "/placeholder.svg", caption: "Expense Analysis" },
-      { url: "/placeholder.svg", caption: "Investment Portfolio" },
-      { url: "/placeholder.svg", caption: "Budget Planning" },
-    ],
-  },
-  {
-    title: "AI Content Generator",
-    description:
-      "A tool that uses AI to generate blog posts, social media content, and marketing copy.",
-    image: "/placeholder.svg",
-    tags: ["Next.js", "OpenAI API", "TailwindCSS", "Vercel AI SDK"],
-    github: "#",
-    demo: "#",
-    slug: "ai-content-generator",
-    date: "April 2023",
-    duration: "1.5 months",
     role: "Full Stack Developer",
-    client: "ContentAI",
+    client: "Personal Project",
     detailedDescription: `
-      This AI-powered content generator helps marketers, bloggers, and social media managers create high-quality 
-      content quickly. It leverages OpenAI's GPT models to generate blog posts, social media updates, email newsletters, 
-      and marketing copy based on user prompts and preferences.
+      A modern React-Redux application that demonstrates the implementation of a blog comments system with user interactions. 
+      This project showcases best practices in state management, API integration, and component architecture using React and Redux.
       
-      The tool includes templates for different content types, tone adjustment options, and the ability to save and 
-      edit generated content. It also features a content calendar for scheduling and publishing.
+      The application features a dynamic post listing with user information, Redux-powered state management, and asynchronous 
+      data fetching using Redux Thunk. The codebase is organized with a clean and modular component architecture.
     `,
     features: [
-      "AI-generated blog posts and articles",
-      "Social media content creation",
-      "Email newsletter generation",
-      "Marketing copy for websites and ads",
-      "Content templates and customization",
-      "Tone and style adjustment",
-      "Content calendar and scheduling",
-      "Export to WordPress, Medium, and other platforms",
+      "Dynamic post listing with user information",
+      "Redux-powered state management",
+      "Asynchronous data fetching using Redux Thunk",
+      "Clean and modular component architecture",
+      "Responsive user interface",
+      "Comprehensive testing with React Testing Library",
     ],
     challenges: `
-      The main challenge was optimizing the interaction with the OpenAI API to provide fast responses while managing 
-      costs. We implemented a caching system for similar prompts and developed a queue system for handling high volumes 
-      of requests during peak times.
+      One of the main challenges was implementing efficient state management for nested comment threads. We solved this by 
+      designing a normalized state structure and implementing custom selectors for data access.
       
-      Another challenge was ensuring the quality and relevance of generated content. We built a feedback system that 
-      allowed users to rate and refine outputs, which helped improve the prompts and instructions sent to the AI model.
+      Another challenge was handling asynchronous operations and loading states. We implemented a robust error handling 
+      system and loading indicators to provide a smooth user experience during data fetching.
     `,
     techStack: {
-      frontend: ["Next.js", "TailwindCSS", "React Hook Form"],
-      backend: ["Next.js API Routes", "OpenAI API", "Vercel AI SDK"],
-      database: ["Supabase", "PostgreSQL"],
-      deployment: ["Vercel", "GitHub Actions"],
+      frontend: ["React", "Redux", "Redux Thunk", "Axios", "Lodash"],
+      testing: ["React Testing Library", "Jest"],
+      deployment: ["GitHub Pages"],
     },
     screenshots: [
-      { url: "/placeholder.svg", caption: "Content Generation Interface" },
-      { url: "/placeholder.svg", caption: "Template Selection" },
-      { url: "/placeholder.svg", caption: "Content Calendar" },
-      { url: "/placeholder.svg", caption: "Export Options" },
-    ],
-  },
-  {
-    title: "Real-time Chat Application",
-    description:
-      "A real-time messaging platform with channels, direct messages, and file sharing capabilities.",
-    image: "/placeholder.svg",
-    tags: ["React", "Firebase", "WebSockets", "Redux"],
-    github: "#",
-    demo: "#",
-    slug: "real-time-chat-application",
-    date: "February 2023",
-    duration: "2 months",
-    role: "Frontend Developer",
-    client: "ConnectNow",
-    detailedDescription: `
-      This real-time chat application provides a seamless communication platform for teams and communities. It features 
-      public channels, private groups, and direct messaging, all with instant message delivery and typing indicators.
-      
-      The app supports rich media sharing, including images, videos, and documents. It also includes features like 
-      message reactions, threaded replies, and search functionality to enhance the user experience.
-    `,
-    features: [
-      "Real-time messaging with WebSockets",
-      "Public channels and private groups",
-      "Direct messaging between users",
-      "File and media sharing",
-      "Message reactions and emoji support",
-      "Threaded conversations and replies",
-      "Message search and filtering",
-      "User presence indicators and typing notifications",
-    ],
-    challenges: `
-      Ensuring message delivery and synchronization across multiple devices was a significant challenge. We implemented 
-      a robust WebSocket architecture with fallback mechanisms to ensure messages were always delivered, even in 
-      unreliable network conditions.
-      
-      Another challenge was optimizing the application for large chat histories. We implemented virtual scrolling and 
-      lazy loading of messages to ensure smooth performance even in channels with thousands of messages.
-    `,
-    techStack: {
-      frontend: ["React", "Redux", "Styled Components"],
-      backend: [
-        "Firebase Realtime Database",
-        "Firebase Authentication",
-        "Cloud Functions",
-      ],
-      storage: ["Firebase Storage for file uploads"],
-      deployment: ["Firebase Hosting", "GitHub Actions"],
-    },
-    screenshots: [
-      { url: "/placeholder.svg", caption: "Main Chat Interface" },
-      { url: "/placeholder.svg", caption: "Direct Messaging" },
-      { url: "/placeholder.svg", caption: "File Sharing" },
-      { url: "/placeholder.svg", caption: "Threaded Conversations" },
-    ],
-  },
-  {
-    title: "Portfolio Website Template",
-    description:
-      "A customizable portfolio template for developers to showcase their work and skills.",
-    image: "/placeholder.svg",
-    tags: ["Next.js", "TailwindCSS", "Framer Motion", "TypeScript"],
-    github: "#",
-    demo: "#",
-    slug: "portfolio-website-template",
-    date: "May 2023",
-    duration: "1 month",
-    role: "Frontend Developer",
-    client: "DevShowcase",
-    detailedDescription: `
-      This portfolio website template provides developers with a professional, customizable platform to showcase their 
-      projects, skills, and experience. It features a modern design with smooth animations, responsive layouts, and 
-      optimized performance.
-      
-      The template includes sections for projects, skills, experience, and contact information, all of which can be 
-      easily customized through a simple configuration file. It also supports dark and light modes, and includes 
-      built-in SEO optimization.
-    `,
-    features: [
-      "Customizable project showcase",
-      "Skills and technology section",
-      "Work experience timeline",
-      "Contact form with validation",
-      "Blog section with MDX support",
-      "Dark and light mode toggle",
-      "Smooth page transitions and animations",
-      "Responsive design for all devices",
-    ],
-    challenges: `
-      Creating a template that was both visually impressive and easy to customize was the main challenge. We developed 
-      a configuration-based approach that allows users to update their portfolio content without needing to modify the 
-      code directly.
-      
-      Optimizing performance while maintaining smooth animations was another challenge. We used Framer Motion for 
-      animations and implemented code splitting and lazy loading to ensure fast page loads even with rich content.
-    `,
-    techStack: {
-      frontend: ["Next.js", "TypeScript", "TailwindCSS", "Framer Motion"],
-      content: ["MDX for blog posts", "Next.js API routes for contact form"],
-      deployment: ["Vercel", "Netlify", "GitHub Pages options"],
-    },
-    screenshots: [
-      { url: "/placeholder.svg", caption: "Home Page" },
-      { url: "/placeholder.svg", caption: "Projects Section" },
-      { url: "/placeholder.svg", caption: "Skills Showcase" },
-      { url: "/placeholder.svg", caption: "Contact Form" },
+      { url: "/placeholder.svg", caption: "Post List View" },
+      { url: "/placeholder.svg", caption: "Comment Thread" },
+      { url: "/placeholder.svg", caption: "User Profile" },
+      { url: "/placeholder.svg", caption: "Mobile Responsive Design" },
     ],
   },
 ];
