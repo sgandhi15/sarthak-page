@@ -31,6 +31,7 @@ export interface Project {
   challenges: string;
   techStack: TechStack;
   screenshots: Array<{ url: string; caption: string }>;
+  featured: boolean;
 }
 
 export const projectsData: Project[] = [
@@ -86,6 +87,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "Security and Compliance Notes" },
       { url: "/placeholder.svg", caption: "Technology Domain Coverage" },
     ],
+    featured: true,
   },
   {
     title: "Blog Comments Application",
@@ -123,23 +125,24 @@ export const projectsData: Project[] = [
       "Comprehensive testing with React Testing Library",
     ],
     challenges: `
-        One of the main challenges was implementing efficient state management for nested comment threads. We solved this by 
-        designing a normalized state structure and implementing custom selectors for data access.
+        The main challenge was implementing efficient state management for complex user interactions. 
+        We solved this by using Redux with proper action creators and reducers.
         
-        Another challenge was handling asynchronous operations and loading states. We implemented a robust error handling 
-        system and loading indicators to provide a smooth user experience during data fetching.
+        Another challenge was ensuring smooth real-time updates. We addressed this by implementing 
+        proper data fetching strategies and optimistic updates.
       `,
     techStack: {
-      frontend: ["React", "Redux", "Redux Thunk", "Axios", "Lodash"],
+      frontend: ["React", "Redux", "Redux Thunk", "Axios"],
       testing: ["React Testing Library", "Jest"],
-      deployment: ["GitHub Pages"],
+      tools: ["Lodash"],
     },
     screenshots: [
       { url: "/placeholder.svg", caption: "Post List View" },
-      { url: "/placeholder.svg", caption: "Comment Thread" },
-      { url: "/placeholder.svg", caption: "User Profile" },
-      { url: "/placeholder.svg", caption: "Mobile Responsive Design" },
+      { url: "/placeholder.svg", caption: "Comment Section" },
+      { url: "/placeholder.svg", caption: "User Interface" },
+      { url: "/placeholder.svg", caption: "Mobile View" },
     ],
+    featured: true,
   },
   {
     title: "Chat App",
@@ -198,6 +201,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "Location Sharing" },
       { url: "/placeholder.svg", caption: "Mobile Responsive View" },
     ],
+    featured: false,
   },
   {
     title: "COVID-19 Tracker",
@@ -258,6 +262,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "Interactive Charts" },
       { url: "/placeholder.svg", caption: "Mobile Responsive View" },
     ],
+    featured: false,
   },
   {
     title: "GitHub Search",
@@ -321,6 +326,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "Repository Management" },
       { url: "/placeholder.svg", caption: "Authentication Flow" },
     ],
+    featured: false,
   },
   {
     title: "Health Card API",
@@ -385,6 +391,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "Security Implementation" },
       { url: "/placeholder.svg", caption: "API Endpoints" },
     ],
+    featured: false,
   },
   {
     title: "Health Card Frontend",
@@ -443,6 +450,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "Patient Interface" },
       { url: "/placeholder.svg", caption: "Medical Records View" },
     ],
+    featured: false,
   },
   {
     title: "Hook Season Display",
@@ -500,6 +508,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "Loading State" },
       { url: "/placeholder.svg", caption: "Error Handling" },
     ],
+    featured: false,
   },
   {
     title: "Indecision App",
@@ -558,6 +567,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "Decision Modal" },
       { url: "/placeholder.svg", caption: "Mobile View" },
     ],
+    featured: false,
   },
   {
     title: "JS Captcha",
@@ -607,6 +617,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "Error State" },
       { url: "/placeholder.svg", caption: "Mobile View" },
     ],
+    featured: false,
   },
   {
     title: "JSON Parser Pro",
@@ -665,6 +676,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "Formatted Output" },
       { url: "/placeholder.svg", caption: "Mobile View" },
     ],
+    featured: false,
   },
   {
     title: "Optical Flow Analysis and Frame Interpolation",
@@ -723,6 +735,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "Error Analysis" },
       { url: "/placeholder.svg", caption: "Feature Tracking" },
     ],
+    featured: false,
   },
   {
     title: "NextResume",
@@ -796,6 +809,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "PDF Preview" },
       { url: "/placeholder.svg", caption: "Resume Management" },
     ],
+    featured: false,
   },
   {
     title: "ParkVision - Smart Parking Management System",
@@ -848,6 +862,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "Notification Settings" },
       { url: "/placeholder.svg", caption: "User Profile" },
     ],
+    featured: false,
   },
   {
     title: "Sarthak Gandhi - Old Portfolio",
@@ -903,6 +918,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "Dark Mode" },
       { url: "/placeholder.svg", caption: "Mobile View" },
     ],
+    featured: false,
   },
   {
     title: "Sarthak Gandhi - Professional Portfolio",
@@ -961,6 +977,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "Projects Gallery" },
       { url: "/placeholder.svg", caption: "Search Interface" },
     ],
+    featured: false,
   },
   {
     title: "Sarthak Gandhi - Professional Portfolio (LaTeX)",
@@ -1018,6 +1035,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "Skills Section" },
       { url: "/placeholder.svg", caption: "Projects Section" },
     ],
+    featured: false,
   },
   {
     title: "Season Display",
@@ -1067,6 +1085,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "Loading State" },
       { url: "/placeholder.svg", caption: "Error Handling" },
     ],
+    featured: false,
   },
   {
     title: "Simple Hook",
@@ -1124,6 +1143,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "Error Handling" },
       { url: "/placeholder.svg", caption: "Component Structure" },
     ],
+    featured: false,
   },
   {
     title: "Stream App",
@@ -1174,6 +1194,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "Server Architecture" },
       { url: "/placeholder.svg", caption: "API Endpoints" },
     ],
+    featured: false,
   },
   {
     title: "Task Manager API",
@@ -1237,6 +1258,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "Task Management" },
       { url: "/placeholder.svg", caption: "File Upload" },
     ],
+    featured: false,
   },
   {
     title: "Unsplash Pics Search",
@@ -1293,6 +1315,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "Mobile View" },
       { url: "/placeholder.svg", caption: "Image Preview" },
     ],
+    featured: false,
   },
   {
     title: "Weather App",
@@ -1351,6 +1374,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "Weather Details" },
       { url: "/placeholder.svg", caption: "Mobile View" },
     ],
+    featured: false,
   },
   {
     title: "YouTube Clone",
@@ -1410,6 +1434,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "Related Videos" },
       { url: "/placeholder.svg", caption: "Mobile View" },
     ],
+    featured: false,
   },
 ];
 
@@ -1424,3 +1449,6 @@ export const getProjects = (page: number = 1, limit: number = 9) => {
 };
 
 export const getTotalProjects = () => projectsData.length;
+
+export const getFeaturedProjects = () =>
+  projectsData.filter((project) => project.featured);

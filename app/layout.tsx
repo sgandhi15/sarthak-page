@@ -7,6 +7,7 @@ import CustomCursor from "@/components/shared/custom-cursor";
 import LoadingScreen from "@/components/shared/loading-screen";
 import SocialFloat from "@/components/shared/social-float";
 import { Providers } from "@/components/providers";
+import { PortfolioProvider } from "@/components/providers/portfolio-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -63,16 +64,18 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className="bg-[#121212] text-gray-200 font-sans">
-        <Providers>
-          <LoadingScreen />
-          <CustomCursor />
-          <SocialFloat />
-          <div className="min-h-screen flex flex-col">
-            <Header />
-            <main className="flex-grow">{children}</main>
-            <Footer />
-          </div>
-        </Providers>
+        <PortfolioProvider>
+          <Providers>
+            <LoadingScreen />
+            <CustomCursor />
+            <SocialFloat />
+            <div className="min-h-screen flex flex-col">
+              <Header />
+              <main className="flex-grow">{children}</main>
+              <Footer />
+            </div>
+          </Providers>
+        </PortfolioProvider>
       </body>
     </html>
   );

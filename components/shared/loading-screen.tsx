@@ -1,105 +1,103 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { usePortfolio } from "@/components/providers";
+import { usePortfolio } from "@/components/providers/portfolio-provider";
 import GlitchText from "@/components/shared/glitch-text";
 
 export default function LoadingScreen() {
   const { isLoading, setIsLoading } = usePortfolio();
   const [progress, setProgress] = useState(0);
   const [text, setText] = useState("Initializing system...");
-  const [hasLoaded, setHasLoaded] = useState(false);
   const [infrastructureLog, setInfrastructureLog] = useState(
     "Connecting to infrastructure..."
   );
+  const [mounted, setMounted] = useState(false);
 
+  // Handle initial mount
   useEffect(() => {
-    // Check if loading has been shown before
-    const hasLoadingBeenShown = localStorage.getItem("loadingShown");
+    setMounted(true);
+  }, []);
 
-    if (hasLoadingBeenShown === "true" && !isLoading) {
-      // Skip loading animation if already shown and isLoading is false
-      setHasLoaded(true);
-      return;
-    }
+  // Handle loading animation
+  useEffect(() => {
+    if (!isLoading || !mounted) return;
 
-    if (isLoading) {
-      // Use a more predictable progress increment
-      const totalDuration = 5000; // 5 seconds total
-      const incrementInterval = 50; // Update every 50ms
-      const incrementAmount = (100 * incrementInterval) / totalDuration; // Calculate increment to reach 100% in totalDuration
+    // Use a more predictable progress increment
+    const totalDuration = 5000; // 5 seconds total
+    const incrementInterval = 50; // Update every 50ms
+    const incrementAmount = (100 * incrementInterval) / totalDuration;
 
-      const interval = setInterval(() => {
-        setProgress((prev) => {
-          const newProgress = prev + incrementAmount;
-          if (newProgress >= 100) {
-            clearInterval(interval);
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        const newProgress = prev + incrementAmount;
+        if (newProgress >= 100) {
+          clearInterval(interval);
+          setTimeout(() => {
+            setIsLoading(false);
+          }, 500);
+          return 100;
+        }
+        return newProgress;
+      });
+    }, incrementInterval);
 
-            // Add a small delay before hiding the loading screen
-            setTimeout(() => {
-              setIsLoading(false);
-              localStorage.setItem("loadingShown", "true");
-              setHasLoaded(true);
-            }, 500);
+    const textInterval = setInterval(() => {
+      setText((prev) => {
+        const texts = [
+          "Initializing system...",
+          "Loading modules...",
+          "Compiling components...",
+          "Fetching data from API...",
+          "Rendering UI components...",
+          "Optimizing assets...",
+          "Establishing database connection...",
+          "Launching application...",
+        ];
+        const currentIndex = texts.indexOf(prev);
+        const nextIndex = (currentIndex + 1) % texts.length;
+        return texts[nextIndex];
+      });
+    }, 600);
 
-            return 100;
-          }
-          return newProgress;
-        });
-      }, incrementInterval);
+    const infraInterval = setInterval(() => {
+      setInfrastructureLog((prev) => {
+        const logs = [
+          "Connecting to infrastructure...",
+          "AWS EC2 instances initialized",
+          "PostgreSQL database connected",
+          "Redis cache warmed up",
+          "CDN configuration loaded",
+          "Docker containers running",
+          "Kubernetes pods ready",
+          "Nginx server configured",
+          "SSL certificates validated",
+          "Environment variables loaded",
+        ];
+        const currentIndex = logs.indexOf(prev);
+        const nextIndex = (currentIndex + 1) % logs.length;
+        return logs[nextIndex];
+      });
+    }, 800);
 
-      const textInterval = setInterval(() => {
-        setText((prev) => {
-          const texts = [
-            "Initializing system...",
-            "Loading modules...",
-            "Compiling components...",
-            "Fetching data from API...",
-            "Rendering UI components...",
-            "Optimizing assets...",
-            "Establishing database connection...",
-            "Launching application...",
-          ];
-          const currentIndex = texts.indexOf(prev);
-          const nextIndex = (currentIndex + 1) % texts.length;
-          return texts[nextIndex];
-        });
-      }, 600);
+    return () => {
+      clearInterval(interval);
+      clearInterval(textInterval);
+      clearInterval(infraInterval);
+    };
+  }, [isLoading, setIsLoading, mounted]);
 
-      const infraInterval = setInterval(() => {
-        setInfrastructureLog((prev) => {
-          const logs = [
-            "Connecting to infrastructure...",
-            "AWS EC2 instances initialized",
-            "PostgreSQL database connected",
-            "Redis cache warmed up",
-            "CDN configuration loaded",
-            "Docker containers running",
-            "Kubernetes pods ready",
-            "Nginx server configured",
-            "SSL certificates validated",
-            "Environment variables loaded",
-          ];
-          const currentIndex = logs.indexOf(prev);
-          const nextIndex = (currentIndex + 1) % logs.length;
-          return logs[nextIndex];
-        });
-      }, 800);
+  // Don't render anything until mounted
+  if (!mounted) {
+    return null;
+  }
 
-      return () => {
-        clearInterval(interval);
-        clearInterval(textInterval);
-        clearInterval(infraInterval);
-      };
-    }
-  }, [isLoading, setIsLoading]);
-
-  if (hasLoaded && !isLoading) {
+  // Don't render loading screen if not loading
+  if (!isLoading) {
     return null;
   }
 
   return (
-    <div className={`loading-screen ${!isLoading ? "loaded" : ""}`}>
+    <div className="fixed inset-0 bg-[#121212] z-50 flex items-center justify-center">
       <div className="w-full max-w-md px-4">
         <GlitchText
           text="INITIALIZING PORTFOLIO"
