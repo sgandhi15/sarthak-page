@@ -809,7 +809,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "PDF Preview" },
       { url: "/placeholder.svg", caption: "Resume Management" },
     ],
-    featured: false,
+    featured: true,
   },
   {
     title: "ParkVision - Smart Parking Management System",

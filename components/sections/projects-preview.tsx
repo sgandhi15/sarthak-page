@@ -33,7 +33,7 @@ export function ProjectsPreview() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {featuredProjects.map((project, index) => (
             <AnimateOnScroll key={project.slug} delay={index * 200}>
-              <article className="bg-[#1A1A1A] relative">
+              <article className="bg-[#1A1A1A] relative h-full flex flex-col">
                 <div className="relative overflow-hidden group">
                   <Image
                     src={project.image || "/placeholder.svg"}
@@ -48,7 +48,7 @@ export function ProjectsPreview() {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#121212] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
 
-                <div className="p-6">
+                <div className="p-6 flex-1 flex flex-col">
                   <h3 className="text-xl font-bold mb-3 font-jetbrains">
                     <Link
                       href={`/projects/${project.slug}`}
@@ -60,7 +60,7 @@ export function ProjectsPreview() {
                     </Link>
                   </h3>
 
-                  <p className="text-gray-400 text-sm mb-4">
+                  <p className="text-gray-400 text-sm mb-4 flex-1">
                     {project.description}
                   </p>
 
@@ -75,7 +75,7 @@ export function ProjectsPreview() {
                     ))}
                   </div>
 
-                  <div className="flex gap-4">
+                  <div className="flex gap-4 mt-auto">
                     <Link
                       href={project.github}
                       target="_blank"
