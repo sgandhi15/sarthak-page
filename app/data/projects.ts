@@ -414,16 +414,15 @@ export const projectsData: Project[] = [
     role: "Frontend Developer",
     client: "Healthcare Provider",
     detailedDescription: `
-        A modern and user-friendly healthcare management system frontend built with React and TypeScript. The application 
-        provides separate interfaces for administrators, doctors, and patients, each with role-specific features and 
-        functionalities.
+        A modern, secure, and user-friendly healthcare management system built with React and Redux. This web application 
+        facilitates efficient communication and data management between healthcare providers, patients, and administrators.
         
         The system implements secure authentication, real-time data updates, and responsive design to ensure a seamless 
         user experience across all devices and user roles.
       `,
     features: [
-      "Role-based user interfaces",
-      "Secure authentication system",
+      "Multi-user role system (Admin, Doctor, Patient)",
+      "JWT-based authentication with role-based access",
       "Medical record management",
       "Patient list management",
       "Interactive chatbot assistance",

@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Calendar, Clock, ArrowLeft, Share2, Bookmark } from "lucide-react";
 import GlitchText from "@/components/shared/glitch-text";
+import { getBlogPosts } from "@/app/data/blog";
 
 interface BlogPostParams {
   params: {
@@ -10,81 +11,15 @@ interface BlogPostParams {
 }
 
 export async function generateStaticParams() {
-  const blogPosts = [
-    {
-      slug: "why-soft-skills-are-the-secret-sauce-for-software-developers",
-    },
-  ];
-
+  const blogPosts = getBlogPosts();
   return blogPosts.map((post) => ({
     slug: post.slug,
   }));
 }
 
 export default async function BlogPostPage({ params }: BlogPostParams) {
-  const { slug } = await params;
-  const blogPosts = [
-    {
-      title: "Why Soft Skills are the Secret Sauce for Software Developers",
-      excerpt:
-        "Discover why soft skills are crucial for software developers and how they can enhance your career success.",
-      image: "/placeholder.svg",
-      date: "January 3, 2025",
-      readTime: "8 min read",
-      tags: [
-        "Soft Skills",
-        "Communication",
-        "Teamwork",
-        "Time Management",
-        "Adaptability",
-        "Emotional Intelligence",
-        "Negotiation",
-      ],
-      slug: "why-soft-skills-are-the-secret-sauce-for-software-developers",
-      content: `# Why Soft Skills are the Secret Sauce for Software Developers
-
-## Introduction: The Power Behind the Code
-
-In software development, it's easy to focus on the technical side: coding, frameworks, algorithms. But in reality, **soft skills**—communication, collaboration, and adaptability—are just as crucial. Think of them like the seasoning in a good stew: essential, but often overlooked.
-
-In places like Newfoundland, we know the importance of community, adapting to change, and rolling with the punches. The same principles apply to being a great developer. Let's dive into why soft skills are key to success, whether you're working remotely or in the heart of a bustling tech hub.
-
-## 1. Communication Skills: More Than Just "How's It Going?"
-
-Good communication is at the heart of any great project. Whether you're explaining a bug to your team, presenting a solution to a client, or even documenting your code, the ability to clearly articulate ideas is essential. It's like explaining the perfect recipe—if you're too technical, people get lost. But when you break things down simply, everyone gets it. Clear communication helps you save time, avoid confusion, and make sure everyone's on the same page.
-
-## 2. Teamwork: Because "Together" is Always Better
-
-In tech, you're rarely ever alone. **Teamwork** is what transforms individual contributions into something greater. Whether you're working with other developers, designers, or product managers, collaboration is key to building solid solutions. It's like building a cabin together—each person has a vital role, and when everyone pitches in, you get a stronger end product.
-
-## 3. Time Management: Avoiding the "Last-Minute Scramble"
-
-Time management in software development is crucial. Whether you're working on a project with tight deadlines or balancing multiple tasks, keeping track of your time can make or break a project. Use tools like Trello, Jira, or even a simple to-do list to stay on top of your work. It's like managing a fishing trip: if you don't plan ahead, things can get chaotic. But when you know when to cast your line, you catch the biggest fish.
-
-## 4. Adaptability: Rolling with the Punches
-
-The tech world evolves faster than the weather in Newfoundland. One day you're working in one framework, the next you're learning something entirely new. Being **adaptable** is key to staying relevant. Embrace change, learn on the fly, and don't be afraid to pivot when necessary. It's like being prepared for a sudden rainstorm—stay flexible, and you'll be able to weather any storm.
-
-## 5. Emotional Intelligence: Staying Cool When Things Go Wrong
-
-Whether you're facing a tricky bug or a tight deadline, **emotional intelligence (EQ)** helps you navigate the ups and downs of software development. Managing your emotions and understanding others' perspectives can help keep the team morale high, even in stressful situations. It's like keeping your cool when the server crashes or the power goes out—staying calm helps you find the solution, and keeps the team moving forward.
-
-## 6. Negotiation: Getting What You Want, Without the "Hard Sell"
-
-Negotiation isn't just for salespeople. As a developer, you often find yourself negotiating timelines, features, or technical decisions. The key is to approach these conversations with respect and collaboration, not confrontation. It's like navigating a community potluck—everyone has different tastes, but finding a way to make everyone happy is what makes the experience worthwhile.
-
-## Conclusion: The Right Blend for Success
-
-Technical skills are important, but **soft skills** are what allow you to collaborate effectively, adapt to change, and handle the ups and downs of development. Whether you're debugging code, collaborating with a team, or managing deadlines, soft skills help you navigate the challenges of the development world with confidence.
-
-Just like a well-cooked stew, it's the right combination of skills that makes a great developer. So, invest in your soft skills, and you'll find yourself thriving not just as a coder, but as a collaborator, communicator, and problem-solver.
-
-## Call to Action:
-
-Start honing your **soft skills** today. Whether it's improving your communication, time management, or emotional intelligence, these skills will make a huge difference in your career. So go ahead—take the time to build them. And remember, like any great project, success in software development is about balance: technical proficiency and soft skills working hand in hand.`,
-    },
-  ];
-
+  const { slug } = params;
+  const blogPosts = getBlogPosts();
   const post = blogPosts.find((post) => post.slug === slug);
 
   if (!post) {
@@ -110,75 +45,66 @@ Start honing your **soft skills** today. Whether it's improving your communicati
   }
 
   return (
-    <div className="pt-20">
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="mb-8">
-            <Link
-              href="/blog"
-              className="inline-flex items-center text-green-400 hover:text-green-300 transition-colors mb-6"
-            >
-              <ArrowLeft className="w-4 h-4 mr-2" />
-              <span className="font-space text-sm">Back to Blog</span>
-            </Link>
-
-            <div className="max-w-4xl mx-auto">
-              <div className="mb-8">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {post.tags.map((tag, tagIndex) => (
-                    <span
-                      key={tagIndex}
-                      className="text-xs bg-[#232323] text-green-400 px-2 py-1 font-space"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                <h1 className="text-3xl md:text-4xl font-bold mb-4 font-jetbrains">
-                  <GlitchText text={post.title} />
-                </h1>
-
-                <div className="flex items-center text-sm text-gray-400 mb-8">
-                  <span className="flex items-center mr-4">
-                    <Calendar className="w-4 h-4 mr-1" />
-                    {post.date}
-                  </span>
-                  <span className="flex items-center">
-                    <Clock className="w-4 h-4 mr-1" />
-                    {post.readTime}
-                  </span>
-                </div>
-              </div>
-
-              <div className="mb-8">
-                <Image
-                  src={post.image || "/placeholder.svg"}
-                  alt={post.title}
-                  width={1200}
-                  height={600}
-                  className="w-full h-auto"
-                />
-              </div>
-
-              <div className="flex justify-between mb-8">
-                <div className="flex space-x-4">
-                  <button className="text-gray-400 hover:text-green-400 transition-colors">
-                    <Share2 className="w-5 h-5" />
-                  </button>
-                  <button className="text-gray-400 hover:text-green-400 transition-colors">
-                    <Bookmark className="w-5 h-5" />
-                  </button>
-                </div>
-              </div>
-
-              <div className="prose prose-invert prose-green max-w-none font-space">
-                <div dangerouslySetInnerHTML={{ __html: post.content }} />
-              </div>
-            </div>
-          </div>
+    <article className="max-w-3xl mx-auto px-4 py-16">
+      {/* Header */}
+      <header className="mb-10">
+        <Link
+          href="/blog"
+          className="inline-flex items-center text-green-400 hover:text-green-300 transition-colors mb-6"
+        >
+          <ArrowLeft className="w-4 h-4 mr-2" />
+          <span className="font-space text-sm">Back to Blog</span>
+        </Link>
+        <img
+          src={post.image || "/placeholder.svg"}
+          alt={post.title}
+          className="w-full h-64 object-cover rounded-xl shadow mb-6"
+          style={{ objectPosition: "center" }}
+        />
+        <h1 className="text-4xl font-bold mb-2 font-jetbrains text-white">
+          <GlitchText text={post.title} />
+        </h1>
+        <div className="flex flex-wrap gap-2 text-sm text-gray-400 mb-2">
+          <span className="flex items-center mr-4">
+            <Calendar className="w-4 h-4 mr-1" />
+            {post.date}
+          </span>
+          <span className="flex items-center">
+            <Clock className="w-4 h-4 mr-1" />
+            {post.readTime}
+          </span>
         </div>
-      </section>
-    </div>
+        <div className="flex flex-wrap gap-2 mb-4">
+          {post.tags.map((tag) => (
+            <span
+              key={tag}
+              className="bg-[#232323] text-green-400 px-2 py-1 rounded text-xs font-medium font-space"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+        <p className="text-lg text-gray-300 mb-2 font-space">{post.excerpt}</p>
+      </header>
+
+      {/* Content */}
+      <section
+        className="prose prose-invert prose-green prose-img:rounded-xl prose-img:shadow-lg prose-headings:font-semibold prose-headings:text-gray-100 prose-p:text-gray-200 max-w-none font-space"
+        dangerouslySetInnerHTML={{ __html: post.content }}
+      />
+
+      {/* Footer actions (optional) */}
+      <footer className="flex justify-between mt-12 border-t border-[#232323] pt-6">
+        <div className="flex space-x-4">
+          <button className="text-gray-400 hover:text-green-400 transition-colors">
+            <Share2 className="w-5 h-5" />
+          </button>
+          <button className="text-gray-400 hover:text-green-400 transition-colors">
+            <Bookmark className="w-5 h-5" />
+          </button>
+        </div>
+        {/* Add author info, next/prev navigation, etc. here if desired */}
+      </footer>
+    </article>
   );
 }
