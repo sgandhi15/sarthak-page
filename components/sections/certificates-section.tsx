@@ -1,61 +1,43 @@
-"use client"
+"use client";
 
-import { useRef, useEffect } from "react"
-import { usePortfolio } from "@/components/providers"
-import GlitchText from "@/components/shared/glitch-text"
-import { Award, Calendar, ExternalLink } from "lucide-react"
+import { useRef, useEffect } from "react";
+import { usePortfolio } from "@/components/providers";
+import GlitchText from "@/components/shared/glitch-text";
+import { Award, Calendar, ExternalLink } from "lucide-react";
 
 export default function CertificatesSection() {
-  const { setCursorType } = usePortfolio()
-  const sectionRef = useRef<HTMLElement>(null)
+  const { setCursorType } = usePortfolio();
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("opacity-100", "translate-y-0")
-            entry.target.classList.remove("opacity-0", "translate-y-10")
+            entry.target.classList.add("opacity-100", "translate-y-0");
+            entry.target.classList.remove("opacity-0", "translate-y-10");
           }
-        })
+        });
       },
-      { threshold: 0.1 },
-    )
+      { threshold: 0.1 }
+    );
 
-    const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll")
-    elements?.forEach((el) => observer.observe(el))
+    const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll");
+    elements?.forEach((el) => observer.observe(el));
 
     return () => {
-      elements?.forEach((el) => observer.unobserve(el))
-    }
-  }, [])
+      elements?.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
 
   const certificates = [
     {
-      title: "Advanced React and Redux",
-      issuer: "Udemy",
-      date: "2023",
-      link: "#",
-    },
-    {
-      title: "Full Stack Web Development",
-      issuer: "freeCodeCamp",
-      date: "2022",
-      link: "#",
-    },
-    {
-      title: "AWS Certified Developer",
+      title: "AWS Certified Cloud Practitioner",
       issuer: "Amazon Web Services",
-      date: "2022",
-      link: "#",
+      date: "03/2025",
+      link: "https://www.credly.com/badges/90679eaa-a515-4c51-a4c4-7a75981e81ac/public_url",
     },
-    {
-      title: "TypeScript Professional",
-      issuer: "Codecademy",
-      date: "2021",
-      link: "#",
-    },
-  ]
+  ];
 
   return (
     <section ref={sectionRef} id="certificates" className="py-20">
@@ -69,7 +51,7 @@ export default function CertificatesSection() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="max-w-2xl mx-auto">
           {certificates.map((cert, index) => (
             <div
               key={index}
@@ -82,7 +64,9 @@ export default function CertificatesSection() {
                 <Award className="w-10 h-10 text-green-400" />
               </div>
               <div className="flex-1">
-                <h3 className="text-lg font-bold font-jetbrains mb-1">{cert.title}</h3>
+                <h3 className="text-lg font-bold font-jetbrains mb-1">
+                  {cert.title}
+                </h3>
                 <p className="text-gray-400 text-sm mb-2">{cert.issuer}</p>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center text-xs text-gray-500">
@@ -104,5 +88,5 @@ export default function CertificatesSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

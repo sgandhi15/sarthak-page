@@ -80,13 +80,17 @@ export default function ContactSection() {
   ];
 
   const socialLinks = [
-    { icon: Github, text: "GitHub", href: "https://github.com/sgandhi15" },
+    {
+      icon: Github,
+      text: "GitHub - sgandhi15",
+      href: "https://github.com/sgandhi15",
+    },
     {
       icon: Linkedin,
-      text: "LinkedIn",
+      text: "LinkedIn - sarthakgandhi1",
       href: "https://linkedin.com/in/sarthakgandhi1",
     },
-    { icon: Twitter, text: "X", href: "https://x.com/sarthak_xp" },
+    { icon: Twitter, text: "X - sarthak_xp", href: "https://x.com/sarthak_xp" },
   ];
 
   const workingHours = [
@@ -255,10 +259,12 @@ export default function ContactSection() {
                 return (
                   <div
                     key={index}
-                    className="flex items-start text-gray-300 hover:text-green-400 transition-colors"
+                    className="flex items-center text-gray-300 hover:text-green-400 transition-colors"
                   >
-                    <Icon className="w-5 h-5 mr-3 text-green-400 mt-1 flex-shrink-0" />
-                    <div className="flex-1">
+                    <div>
+                      <Icon className="w-5 h-5 mr-3 text-green-400 flex-shrink-0" />
+                    </div>
+                    <div>
                       <div className="text-xs text-gray-500 font-space mb-1">
                         <span className="code-comment">{`contact_info[${index}]`}</span>
                       </div>
@@ -291,10 +297,12 @@ export default function ContactSection() {
                 return (
                   <div
                     key={index}
-                    className="flex items-start text-gray-300 hover:text-green-400 transition-colors"
+                    className="flex items-center text-gray-300 hover:text-green-400 transition-colors"
                   >
-                    <Icon className="w-5 h-5 mr-3 text-green-400 mt-1 flex-shrink-0" />
-                    <div className="flex-1">
+                    <div>
+                      <Icon className="w-5 h-5 mr-3 text-green-400 flex-shrink-0" />
+                    </div>
+                    <div>
                       <div className="text-xs text-gray-500 font-space mb-1">
                         <span className="code-comment">{`social_links[${index}]`}</span>
                       </div>

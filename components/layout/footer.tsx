@@ -57,9 +57,10 @@ export default function Footer() {
               /* Built with Next.js and TypeScript */
             </span>
           </p>
-          <p className="mt-2">
-            &copy; {new Date().getFullYear()} All rights reserved.
-          </p>
+          {/* <p className="mt-2">
+            &copy; {new Date().getFullYear()} Sarthak Gandhi. All rights
+            reserved.
+          </p> */}
         </div>
       </div>
     </footer>
