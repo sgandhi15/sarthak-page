@@ -263,7 +263,7 @@ export const projectsData: Project[] = [
     title: "GitHub Search",
     description:
       "A modern, responsive React application that allows users to search and explore GitHub profiles, repositories, and manage their favorite repositories.",
-    image: "/placeholder.svg",
+    image: "/projects/github-search.png",
     tags: [
       "React",
       "Firebase",
@@ -277,7 +277,7 @@ export const projectsData: Project[] = [
       "Bootstrap 4",
       "Semantic UI",
     ],
-    github: "#",
+    github: "https://github.com/sgandhi15/github-search",
     demo: "#",
     slug: "github-search",
     date: "June 2020",
@@ -316,10 +316,8 @@ export const projectsData: Project[] = [
       tools: ["Axios", "React Toastify", "GitHub API"],
     },
     screenshots: [
-      { url: "/placeholder.svg", caption: "User Search Interface" },
-      { url: "/placeholder.svg", caption: "Profile View" },
-      { url: "/placeholder.svg", caption: "Repository Management" },
-      { url: "/placeholder.svg", caption: "Authentication Flow" },
+      { url: "/projects/github-search.png", caption: "Login Page" },
+      { url: "/projects/github-search-2.png", caption: "Search Page" },
     ],
     featured: false,
   },
@@ -617,7 +615,7 @@ export const projectsData: Project[] = [
     title: "JSON Parser Pro",
     description:
       "A modern, feature-rich JSON validation and formatting tool built with React and TypeScript that provides developers with a powerful yet user-friendly interface for working with JSON data.",
-    image: "/placeholder.svg",
+    image: "/projects/jp-1.png",
     tags: [
       "React",
       "TypeScript",
@@ -628,8 +626,8 @@ export const projectsData: Project[] = [
       "Formatter",
       "Validator",
     ],
-    github: "#",
-    demo: "#",
+    github: "https://github.com/sgandhi15/json-parser-pro",
+    demo: "https://json-parser-pro.pages.dev/",
     slug: "json-parser-pro",
     date: "December 2024",
     duration: "1 month",
@@ -665,10 +663,8 @@ export const projectsData: Project[] = [
       tools: ["Vite", "ESLint", "Lucide React"],
     },
     screenshots: [
-      { url: "/placeholder.svg", caption: "Main Interface" },
-      { url: "/placeholder.svg", caption: "Validation Error" },
-      { url: "/placeholder.svg", caption: "Formatted Output" },
-      { url: "/placeholder.svg", caption: "Mobile View" },
+      { url: "/projects/jp-1.png", caption: "Main Interface" },
+      { url: "/projects/jp-2.png", caption: "Parser" },
     ],
     featured: false,
   },
@@ -676,7 +672,7 @@ export const projectsData: Project[] = [
     title: "Optical Flow Analysis and Frame Interpolation",
     description:
       "A computer vision project that implements and analyzes various optical flow estimation techniques, including frame interpolation capabilities using Python and OpenCV.",
-    image: "/placeholder.svg",
+    image: "/projects/optical.jpg",
     tags: [
       "Computer Vision",
       "Optical Flow",
@@ -687,7 +683,7 @@ export const projectsData: Project[] = [
       "NumPy",
       "Matplotlib",
     ],
-    github: "#",
+    github: "https://github.com/sgandhi15/mun-course-computer-vision-assi3",
     demo: "#",
     slug: "mun-course-computer-vision-assi3",
     date: "March 2024",
@@ -723,12 +719,7 @@ export const projectsData: Project[] = [
       backend: ["Python", "OpenCV", "NumPy"],
       tools: ["FlowPy", "Matplotlib"],
     },
-    screenshots: [
-      { url: "/placeholder.svg", caption: "Flow Visualization" },
-      { url: "/placeholder.svg", caption: "Frame Interpolation" },
-      { url: "/placeholder.svg", caption: "Error Analysis" },
-      { url: "/placeholder.svg", caption: "Feature Tracking" },
-    ],
+    screenshots: [],
     featured: false,
   },
   {
@@ -858,123 +849,123 @@ export const projectsData: Project[] = [
     ],
     featured: false,
   },
+  // {
+  //   title: "Sarthak Gandhi - Old Portfolio",
+  //   description:
+  //     "A modern, responsive, and elegant portfolio website built with Astro and TailwindCSS, serving as a comprehensive showcase of professional experience, skills, and projects.",
+  //   image: "/placeholder.svg",
+  //   tags: [
+  //     "Astro",
+  //     "TailwindCSS",
+  //     "TypeScript",
+  //     "Cloudflare Pages",
+  //     "pnpm",
+  //     "json",
+  //   ],
+  //   github: "#",
+  //   demo: "#",
+  //   slug: "sarthak-portfolio-old",
+  //   date: "January 2025",
+  //   duration: "2 months",
+  //   role: "Frontend Developer",
+  //   client: "Personal Project",
+  //   detailedDescription: `
+  //       A modern, responsive portfolio website built with Astro and TailwindCSS. The site serves as a comprehensive
+  //       showcase of professional experience, skills, and projects, featuring a clean design and excellent performance.
+
+  //       The website implements modern web development practices and focuses on accessibility and user experience.
+  //     `,
+  //   features: [
+  //     "Responsive Design for all devices",
+  //     "Dark/Light Mode Toggle",
+  //     "Print-Friendly Layout",
+  //     "Performance Optimized",
+  //     "Type-Safe Development",
+  //     "SEO Optimized",
+  //     "Modern Component Architecture",
+  //     "Fast Page Load Times",
+  //   ],
+  //   challenges: `
+  //       The main challenge was optimizing performance while maintaining a rich feature set.
+  //       We solved this by leveraging Astro's static site generation and implementing efficient component loading.
+
+  //       Another challenge was ensuring consistent styling across different browsers. We addressed this by
+  //       using TailwindCSS with a well-structured design system.
+  //     `,
+  //   techStack: {
+  //     frontend: ["Astro", "TypeScript", "TailwindCSS"],
+  //     deployment: ["Cloudflare Pages"],
+  //     tools: ["pnpm", "ESLint", "Prettier"],
+  //   },
+  //   screenshots: [
+  //     { url: "/placeholder.svg", caption: "Home Page" },
+  //     { url: "/placeholder.svg", caption: "Projects Section" },
+  //     { url: "/placeholder.svg", caption: "Dark Mode" },
+  //     { url: "/placeholder.svg", caption: "Mobile View" },
+  //   ],
+  //   featured: false,
+  // },
+  // {
+  //   title: "Sarthak Gandhi - Professional Portfolio",
+  //   description:
+  //     "A personal portfolio and blog website built with modern web technologies to showcase projects and share knowledge about software development.",
+  //   image: "/placeholder.svg",
+  //   tags: [
+  //     "React",
+  //     "TypeScript",
+  //     "Tailwind CSS",
+  //     "Shadcn UI",
+  //     "Astro",
+  //     "Docker",
+  //   ],
+  //   github: "#",
+  //   demo: "#",
+  //   slug: "sarthak-portfolio",
+  //   date: "May 2025",
+  //   duration: "3 months",
+  //   role: "Full Stack Developer",
+  //   client: "Personal Project",
+  //   detailedDescription: `
+  //       A modern portfolio and blog website built with React, TypeScript, and Astro. The site serves as a platform
+  //       to showcase projects and share knowledge about software development, featuring a clean design and excellent
+  //       performance.
+
+  //       The website implements modern web development practices and focuses on accessibility, user experience,
+  //       and content management.
+  //     `,
+  //   features: [
+  //     "Responsive Design",
+  //     "Dark/Light Mode",
+  //     "Blog Section with Markdown",
+  //     "Project Showcase",
+  //     "Search Functionality",
+  //     "Tag-based Navigation",
+  //     "SEO Optimization",
+  //     "Docker Deployment",
+  //   ],
+  //   challenges: `
+  //       The main challenge was implementing an efficient content management system.
+  //       We solved this by using Markdown for content and implementing a robust build process.
+
+  //       Another challenge was ensuring fast page loads with rich content. We addressed this by
+  //       implementing proper code splitting and lazy loading.
+  //     `,
+  //   techStack: {
+  //     frontend: ["React", "TypeScript", "Tailwind CSS", "Shadcn UI"],
+  //     content: ["Astro", "Markdown"],
+  //     deployment: ["Docker"],
+  //     tools: ["pnpm", "ESLint", "Prettier"],
+  //   },
+  //   screenshots: [
+  //     { url: "/placeholder.svg", caption: "Home Page" },
+  //     { url: "/placeholder.svg", caption: "Blog Section" },
+  //     { url: "/placeholder.svg", caption: "Projects Gallery" },
+  //     { url: "/placeholder.svg", caption: "Search Interface" },
+  //   ],
+  //   featured: false,
+  // },
   {
-    title: "Sarthak Gandhi - Old Portfolio",
-    description:
-      "A modern, responsive, and elegant portfolio website built with Astro and TailwindCSS, serving as a comprehensive showcase of professional experience, skills, and projects.",
-    image: "/placeholder.svg",
-    tags: [
-      "Astro",
-      "TailwindCSS",
-      "TypeScript",
-      "Cloudflare Pages",
-      "pnpm",
-      "json",
-    ],
-    github: "#",
-    demo: "#",
-    slug: "sarthak-portfolio-old",
-    date: "January 2025",
-    duration: "2 months",
-    role: "Frontend Developer",
-    client: "Personal Project",
-    detailedDescription: `
-        A modern, responsive portfolio website built with Astro and TailwindCSS. The site serves as a comprehensive 
-        showcase of professional experience, skills, and projects, featuring a clean design and excellent performance.
-        
-        The website implements modern web development practices and focuses on accessibility and user experience.
-      `,
-    features: [
-      "Responsive Design for all devices",
-      "Dark/Light Mode Toggle",
-      "Print-Friendly Layout",
-      "Performance Optimized",
-      "Type-Safe Development",
-      "SEO Optimized",
-      "Modern Component Architecture",
-      "Fast Page Load Times",
-    ],
-    challenges: `
-        The main challenge was optimizing performance while maintaining a rich feature set. 
-        We solved this by leveraging Astro's static site generation and implementing efficient component loading.
-        
-        Another challenge was ensuring consistent styling across different browsers. We addressed this by 
-        using TailwindCSS with a well-structured design system.
-      `,
-    techStack: {
-      frontend: ["Astro", "TypeScript", "TailwindCSS"],
-      deployment: ["Cloudflare Pages"],
-      tools: ["pnpm", "ESLint", "Prettier"],
-    },
-    screenshots: [
-      { url: "/placeholder.svg", caption: "Home Page" },
-      { url: "/placeholder.svg", caption: "Projects Section" },
-      { url: "/placeholder.svg", caption: "Dark Mode" },
-      { url: "/placeholder.svg", caption: "Mobile View" },
-    ],
-    featured: false,
-  },
-  {
-    title: "Sarthak Gandhi - Professional Portfolio",
-    description:
-      "A personal portfolio and blog website built with modern web technologies to showcase projects and share knowledge about software development.",
-    image: "/placeholder.svg",
-    tags: [
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Shadcn UI",
-      "Astro",
-      "Docker",
-    ],
-    github: "#",
-    demo: "#",
-    slug: "sarthak-portfolio",
-    date: "May 2025",
-    duration: "3 months",
-    role: "Full Stack Developer",
-    client: "Personal Project",
-    detailedDescription: `
-        A modern portfolio and blog website built with React, TypeScript, and Astro. The site serves as a platform 
-        to showcase projects and share knowledge about software development, featuring a clean design and excellent 
-        performance.
-        
-        The website implements modern web development practices and focuses on accessibility, user experience, 
-        and content management.
-      `,
-    features: [
-      "Responsive Design",
-      "Dark/Light Mode",
-      "Blog Section with Markdown",
-      "Project Showcase",
-      "Search Functionality",
-      "Tag-based Navigation",
-      "SEO Optimization",
-      "Docker Deployment",
-    ],
-    challenges: `
-        The main challenge was implementing an efficient content management system. 
-        We solved this by using Markdown for content and implementing a robust build process.
-        
-        Another challenge was ensuring fast page loads with rich content. We addressed this by 
-        implementing proper code splitting and lazy loading.
-      `,
-    techStack: {
-      frontend: ["React", "TypeScript", "Tailwind CSS", "Shadcn UI"],
-      content: ["Astro", "Markdown"],
-      deployment: ["Docker"],
-      tools: ["pnpm", "ESLint", "Prettier"],
-    },
-    screenshots: [
-      { url: "/placeholder.svg", caption: "Home Page" },
-      { url: "/placeholder.svg", caption: "Blog Section" },
-      { url: "/placeholder.svg", caption: "Projects Gallery" },
-      { url: "/placeholder.svg", caption: "Search Interface" },
-    ],
-    featured: false,
-  },
-  {
-    title: "Sarthak Gandhi - Professional Portfolio (LaTeX)",
+    title: "Sarthak Gandhi - Professional Resume (LaTeX)",
     description:
       "A LaTeX archive of my professional resume, showcasing experience as a Software Developer with expertise in full-stack development, system architecture, and cloud solutions.",
     image: "/placeholder.svg",
@@ -1085,7 +1076,7 @@ export const projectsData: Project[] = [
     title: "Simple Hook",
     description:
       "A demonstration project showcasing the implementation and usage of custom React hooks, built with React 16.13.1.",
-    image: "/placeholder.svg",
+    image: "/projects/react-hook.jpg",
     tags: [
       "React",
       "Hooks",
@@ -1094,7 +1085,7 @@ export const projectsData: Project[] = [
       "State Management",
       "Component Composition",
     ],
-    github: "#",
+    github: "https://github.com/sgandhi15/simple-hook",
     demo: "#",
     slug: "simple-hook",
     date: "July 2020",
@@ -1131,21 +1122,16 @@ export const projectsData: Project[] = [
       hooks: ["useState", "useEffect", "Custom Hooks"],
       apis: ["JSONPlaceholder API"],
     },
-    screenshots: [
-      { url: "/placeholder.svg", caption: "Resource List View" },
-      { url: "/placeholder.svg", caption: "Loading State" },
-      { url: "/placeholder.svg", caption: "Error Handling" },
-      { url: "/placeholder.svg", caption: "Component Structure" },
-    ],
+    screenshots: [],
     featured: false,
   },
   {
     title: "Stream App",
     description:
       "A modern live streaming platform built with a microservice architecture, enabling users to create, manage, and watch live streams.",
-    image: "/placeholder.svg",
+    image: "/projects/rtmp.jpg",
     tags: ["Node.js", "Express", "RTMP", "JSON Server"],
-    github: "#",
+    github: "https://github.com/sgandhi15/stream-app",
     demo: "#",
     slug: "stream-app",
     date: "July 2020",
@@ -1182,12 +1168,7 @@ export const projectsData: Project[] = [
       database: ["JSON Server"],
       deployment: ["Custom Server"],
     },
-    screenshots: [
-      { url: "/placeholder.svg", caption: "API Documentation" },
-      { url: "/placeholder.svg", caption: "Stream Management" },
-      { url: "/placeholder.svg", caption: "Server Architecture" },
-      { url: "/placeholder.svg", caption: "API Endpoints" },
-    ],
+    screenshots: [],
     featured: false,
   },
   {
@@ -1253,7 +1234,7 @@ export const projectsData: Project[] = [
     title: "Unsplash Pics Search",
     description:
       "A modern, responsive image search application built with React that allows users to search and browse high-quality images from Unsplash's extensive collection.",
-    image: "/placeholder.svg",
+    image: "/projects/pics-1.png",
     tags: [
       "React",
       "Unsplash",
@@ -1262,7 +1243,7 @@ export const projectsData: Project[] = [
       "State Management",
       "Axios",
     ],
-    github: "#",
+    github: "https://github.com/sgandhi15/unsplash-pics-search",
     demo: "#",
     slug: "unsplash-pics-search",
     date: "July 2020",
@@ -1299,10 +1280,8 @@ export const projectsData: Project[] = [
       apis: ["Unsplash API"],
     },
     screenshots: [
-      { url: "/placeholder.svg", caption: "Search Interface" },
-      { url: "/placeholder.svg", caption: "Image Grid" },
-      { url: "/placeholder.svg", caption: "Mobile View" },
-      { url: "/placeholder.svg", caption: "Image Preview" },
+      { url: "/projects/pics-1.png", caption: "Search Interface" },
+      { url: "/projects/pics-2.png", caption: "Image Grid" },
     ],
     featured: false,
   },
@@ -1310,7 +1289,7 @@ export const projectsData: Project[] = [
     title: "Weather App",
     description:
       "A modern, real-time weather application that provides detailed weather information for any location worldwide.",
-    image: "/placeholder.svg",
+    image: "/projects/wa.png",
     tags: [
       "Node.js",
       "Express",
@@ -1319,7 +1298,7 @@ export const projectsData: Project[] = [
       "Semantic UI",
       "Weather API",
     ],
-    github: "#",
+    github: "https://github.com/sgandhi15/weather-app",
     demo: "#",
     slug: "weather-app",
     date: "May 2020",
@@ -1357,19 +1336,14 @@ export const projectsData: Project[] = [
       apis: ["OpenWeatherMap API"],
       tools: ["Nodemon"],
     },
-    screenshots: [
-      { url: "/placeholder.svg", caption: "Weather Display" },
-      { url: "/placeholder.svg", caption: "Search Interface" },
-      { url: "/placeholder.svg", caption: "Weather Details" },
-      { url: "/placeholder.svg", caption: "Mobile View" },
-    ],
+    screenshots: [{ url: "/projects/wa.png", caption: "Weather Display" }],
     featured: false,
   },
   {
     title: "YouTube Clone",
     description:
       "A YouTube clone application built with React, showcasing the implementation of a real-world video streaming platform using React.js and the YouTube Data API.",
-    image: "/placeholder.svg",
+    image: "/projects/yt-app.png",
     tags: [
       "React",
       "YouTube",
@@ -1380,7 +1354,7 @@ export const projectsData: Project[] = [
       "React Router",
       "YouTube Data API",
     ],
-    github: "#",
+    github: "https://github.com/sgandhi15/youtube-app",
     demo: "#",
     slug: "youtube-app",
     date: "July 2020",
@@ -1417,12 +1391,7 @@ export const projectsData: Project[] = [
       tools: ["Axios"],
       apis: ["YouTube Data API v3"],
     },
-    screenshots: [
-      { url: "/placeholder.svg", caption: "Search Interface" },
-      { url: "/placeholder.svg", caption: "Video Player" },
-      { url: "/placeholder.svg", caption: "Related Videos" },
-      { url: "/placeholder.svg", caption: "Mobile View" },
-    ],
+    screenshots: [{ url: "/projects/yt-app.png", caption: "Search Interface" }],
     featured: false,
   },
 ];

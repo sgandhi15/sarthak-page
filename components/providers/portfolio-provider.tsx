@@ -21,8 +21,13 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
   // Handle initial mount
   useEffect(() => {
     setMounted(true);
-    // Always show loading animation on new session
-    setIsLoading(true);
+
+    // Only show loading animation on main page
+    if (typeof window !== "undefined" && window.location.pathname === "/") {
+      setIsLoading(true);
+    } else {
+      setIsLoading(false);
+    }
   }, []);
 
   // Prevent hydration mismatch by not rendering until mounted
