@@ -15,7 +15,7 @@ export const blogPosts: BlogPost[] = [
     title: "Why Soft Skills are the Secret Sauce for Software Developers",
     excerpt:
       "Discover why soft skills are crucial for software developers and how they can enhance your career success.",
-    image: "/blog-imgs/soft-skills/header.jpg",
+    image: "/blog-imgs/soft-skills/blog-head.png",
     date: "January 3, 2025",
     readTime: "8 min read",
     tags: [

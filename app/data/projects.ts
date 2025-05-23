@@ -39,7 +39,7 @@ export const projectsData: Project[] = [
     title: "AWS Certified Cloud Practitioner (CLF-C02) Study Notes",
     description:
       "A collection of study notes for the AWS Certified Cloud Practitioner (CLF-C02) certification exam.",
-    image: "/placeholder.svg",
+    image: "/projects/aws-clf.png",
     tags: [
       "AWS",
       "Cloud",
@@ -47,11 +47,11 @@ export const projectsData: Project[] = [
       "Study Notes",
       "Cloud Practitioner",
     ],
-    github: "#",
-    demo: "#",
+    github: "https://github.com/sgandhi15/aws-CLF-C02-notes",
+    demo: "",
     slug: "aws-clf-c02-notes",
     date: "March 2025",
-    duration: "Ongoing",
+    duration: "2 Weeks",
     role: "Student",
     client: "Personal Project",
     detailedDescription: `
@@ -81,12 +81,7 @@ export const projectsData: Project[] = [
       frontend: ["Markdown", "GitHub Pages"],
       content: ["AWS Documentation", "Official Study Guide", "Practice Exams"],
     },
-    screenshots: [
-      { url: "/placeholder.svg", caption: "Study Notes Overview" },
-      { url: "/placeholder.svg", caption: "Cloud Concepts Section" },
-      { url: "/placeholder.svg", caption: "Security and Compliance Notes" },
-      { url: "/placeholder.svg", caption: "Technology Domain Coverage" },
-    ],
+    screenshots: [],
     featured: true,
   },
   {
@@ -142,7 +137,7 @@ export const projectsData: Project[] = [
       { url: "/placeholder.svg", caption: "User Interface" },
       { url: "/placeholder.svg", caption: "Mobile View" },
     ],
-    featured: true,
+    featured: false,
   },
   {
     title: "Chat App",
@@ -740,7 +735,7 @@ export const projectsData: Project[] = [
     title: "NextResume",
     description:
       "A modern, AI-powered resume builder application that helps users create, customize, and tailor professional resumes for specific job applications.",
-    image: "/placeholder.svg",
+    image: "/projects/nr-1.png",
     tags: [
       "React",
       "TypeScript",
@@ -764,8 +759,8 @@ export const projectsData: Project[] = [
       "JWT",
       "LLM",
     ],
-    github: "#",
-    demo: "#",
+    github: "https://github.com/sgandhi15/nextresume-public",
+    demo: "https://nextresume.app/",
     slug: "nextresume",
     date: "May 2025",
     duration: "3 months",
@@ -803,10 +798,10 @@ export const projectsData: Project[] = [
       security: ["Google OAuth", "JWT"],
     },
     screenshots: [
-      { url: "/placeholder.svg", caption: "Resume Builder Interface" },
-      { url: "/placeholder.svg", caption: "AI Tailoring Process" },
-      { url: "/placeholder.svg", caption: "PDF Preview" },
-      { url: "/placeholder.svg", caption: "Resume Management" },
+      { url: "/projects/nr-1.png", caption: "landing page" },
+      { url: "/projects/nr-2.png", caption: "dashboard" },
+      { url: "/projects/nr-3.png", caption: "resume parser" },
+      { url: "/projects/nr-4.png", caption: "resume editor" },
     ],
     featured: true,
   },
@@ -1199,7 +1194,7 @@ export const projectsData: Project[] = [
     title: "Task Manager API",
     description:
       "A robust RESTful API for managing tasks and user accounts, built with Node.js, Express, and MongoDB.",
-    image: "/placeholder.svg",
+    image: "/projects/tm.png",
     tags: [
       "Node.js",
       "Express.js",
@@ -1213,8 +1208,8 @@ export const projectsData: Project[] = [
       "AWS",
       "DigitalOcean",
     ],
-    github: "#",
-    demo: "#",
+    github: "https://github.com/sgandhi15/task-manager-api",
+    demo: "",
     slug: "task-manager-api",
     date: "June 2020",
     duration: "2 months",
@@ -1251,13 +1246,8 @@ export const projectsData: Project[] = [
       tools: ["Multer", "SendGrid", "Nodemon"],
       deployment: ["Heroku", "AWS", "DigitalOcean"],
     },
-    screenshots: [
-      { url: "/placeholder.svg", caption: "API Documentation" },
-      { url: "/placeholder.svg", caption: "User Management" },
-      { url: "/placeholder.svg", caption: "Task Management" },
-      { url: "/placeholder.svg", caption: "File Upload" },
-    ],
-    featured: false,
+    screenshots: [],
+    featured: true,
   },
   {
     title: "Unsplash Pics Search",
@@ -1437,7 +1427,7 @@ export const projectsData: Project[] = [
   },
 ];
 
-export const getProjectBySlug = (slug: string) => {
+export const getProjectBySlug = async (slug: string) => {
   return projectsData.find((project) => project.slug === slug);
 };
 

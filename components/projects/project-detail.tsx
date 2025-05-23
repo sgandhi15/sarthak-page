@@ -114,16 +114,20 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                       <Github className="w-5 h-5 mr-2" />
                       <span>GitHub</span>
                     </Link>
-                    <Link
-                      href={project.demo}
-                      className="bg-[#1E1E1E] px-4 py-2 text-green-400 hover:bg-green-400 hover:text-[#1E1E1E] transition-colors flex items-center"
-                      onMouseEnter={() => setCursorType("hover")}
-                      onMouseLeave={() => setCursorType("default")}
-                      aria-label="View Live Demo"
-                    >
-                      <ExternalLink className="w-5 h-5 mr-2" />
-                      <span>Live Demo</span>
-                    </Link>
+                    {project.demo &&
+                      project.demo !== "" &&
+                      project.demo !== "#" && (
+                        <Link
+                          href={project.demo}
+                          className="bg-[#1E1E1E] px-4 py-2 text-green-400 hover:bg-green-400 hover:text-[#1E1E1E] transition-colors flex items-center"
+                          onMouseEnter={() => setCursorType("hover")}
+                          onMouseLeave={() => setCursorType("default")}
+                          aria-label="View Live Demo"
+                        >
+                          <ExternalLink className="w-5 h-5 mr-2" />
+                          <span>Live Demo</span>
+                        </Link>
+                      )}
                   </div>
                 </div>
               </div>
@@ -146,11 +150,13 @@ export default function ProjectDetail({ project }: ProjectDetailProps) {
                 <ProjectTechStack techStack={project.techStack} />
               </Suspense>
 
-              <Suspense
-                fallback={<div className="mt-8">Loading screenshots...</div>}
-              >
-                <ProjectScreenshots screenshots={project.screenshots} />
-              </Suspense>
+              {project.screenshots && project.screenshots.length > 0 && (
+                <Suspense
+                  fallback={<div className="mt-8">Loading screenshots...</div>}
+                >
+                  <ProjectScreenshots screenshots={project.screenshots} />
+                </Suspense>
+              )}
             </div>
 
             <div className="lg:col-span-1">

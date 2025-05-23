@@ -1,5 +1,11 @@
 import { getProjectBySlug, getProjects, Project } from "@/app/data/projects";
-import ProjectDetail from "../../../components/projects/project-detail";
+import ProjectDetail from "@/components/projects/project-detail";
+
+interface ProjectParams {
+  params: {
+    slug: string;
+  };
+}
 
 export async function generateStaticParams() {
   const projects = getProjects(1, 1000); // Get all projects for static generation
@@ -8,13 +14,8 @@ export async function generateStaticParams() {
   }));
 }
 
-interface ProjectParams {
-  params: {
-    slug: string;
-  };
-}
-
-export default function ProjectDetailPage({ params }: ProjectParams) {
-  const project = getProjectBySlug(params.slug);
+export default async function ProjectDetailPage({ params }: ProjectParams) {
+  const { slug } = await params;
+  const project = await getProjectBySlug(slug);
   return <ProjectDetail project={project} />;
 }

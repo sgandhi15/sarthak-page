@@ -177,17 +177,21 @@ export default function ProjectsPage() {
                         <Github className="w-4 h-4 mr-2" />
                         <span>View Code</span>
                       </Link>
-                      <Link
-                        href={project.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-green-400 font-space text-sm flex items-center hover:text-green-300 transition-colors"
-                        onMouseEnter={() => setCursorType("hover")}
-                        onMouseLeave={() => setCursorType("default")}
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        <span>Live Demo</span>
-                      </Link>
+                      {project.demo &&
+                        project.demo !== "" &&
+                        project.demo !== "#" && (
+                          <Link
+                            href={project.demo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-green-400 font-space text-sm flex items-center hover:text-green-300 transition-colors"
+                            onMouseEnter={() => setCursorType("hover")}
+                            onMouseLeave={() => setCursorType("default")}
+                          >
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            <span>Live Demo</span>
+                          </Link>
+                        )}
                     </div>
                   </div>
                 </AnimateOnScroll>
