@@ -33,7 +33,7 @@ export default function AboutPage() {
             <AnimateOnScroll delay={300}>
               <div className="relative aspect-square">
                 <Image
-                  src="/placeholder.svg"
+                  src="/about-me.png"
                   alt="Sarthak Gandhi"
                   fill
                   className="object-cover"
