@@ -8,6 +8,7 @@ import LoadingScreen from "@/components/shared/loading-screen";
 import SocialFloat from "@/components/shared/social-float";
 import { Providers } from "@/components/providers";
 import { PortfolioProvider } from "@/components/providers/portfolio-provider";
+import { Toaster } from "@/components/ui/sonner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -74,6 +75,7 @@ export default function RootLayout({
               <main className="flex-grow">{children}</main>
               <Footer />
             </div>
+            <Toaster />
           </Providers>
         </PortfolioProvider>
       </body>

@@ -15,6 +15,7 @@ import {
   Github,
   Twitter,
 } from "lucide-react";
+import { toast } from "sonner";
 
 export default function ContactSection() {
   const { setCursorType } = usePortfolio();
@@ -54,19 +55,45 @@ export default function ContactSection() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Form submission logic would go here
-    console.log(formData);
-    // Reset form
+    const formData = new FormData(e.target as HTMLFormElement);
+    const data = Object.fromEntries(formData);
+    const jsonData = JSON.stringify(data);
+
+    const action = "https://api.web3forms.com/submit";
+
+    const res = await fetch(action, {
+      method: "POST",
+      body: jsonData,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    });
+
+    const result = await res.json();
+
+    if (result.success) {
+      toast.custom((t) => (
+        <div className="bg-green-500 text-white p-4 font-space w-fit rounded-md animate-in fade-in-0 duration-300">
+          Message sent successfully!
+        </div>
+      ));
+    } else {
+      toast.custom((t) => (
+        <div className="bg-red-500 text-white p-4 font-space w-fit rounded-md animate-in fade-in-0 duration-300">
+          Message failed to send.
+        </div>
+      ));
+    }
+
     setFormData({
       name: "",
       email: "",
       subject: "",
       message: "",
     });
-    // Show success message
-    alert("Message sent successfully!");
   };
 
   const contactInfo = [
@@ -125,7 +152,12 @@ export default function ContactSection() {
               </h3>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form className="space-y-4" method="post" onSubmit={handleSubmit}>
+              <input
+                type="hidden"
+                name="access_key"
+                value="5bc22978-6dce-46bf-82be-af974f7ec64d"
+              />
               <div>
                 <div className="flex justify-between mb-1">
                   <label htmlFor="name" className="block text-sm font-space">
@@ -239,6 +271,12 @@ export default function ContactSection() {
                   <ScrambleText text="Send Message" />
                   <Send className="ml-2 w-4 h-4" />
                 </button>
+                <input
+                  type="checkbox"
+                  name="botcheck"
+                  className="hidden"
+                  style={{ display: "none" }}
+                />
               </div>
             </form>
           </div>
