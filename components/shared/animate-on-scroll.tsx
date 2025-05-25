@@ -42,7 +42,7 @@ export default function AnimateOnScroll({
   return (
     <div
       ref={elementRef}
-      className={`animate-on-scroll opacity-0 translate-y-10 transition-all duration-700 ${className}`}
+      className={`animate-on-scroll opacity-0 translate-y-10 transition-all duration-400 ${className}`}
       style={{ transitionDelay: `${delay}ms` }}
     >
       {children}

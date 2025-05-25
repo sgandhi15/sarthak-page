@@ -360,7 +360,7 @@ export default function ContactSection() {
               })}
             </div>
 
-            <div className="mt-8 bg-[#1A1A1A] p-6 relative">
+            {/* <div className="mt-8 bg-[#1A1A1A] p-6 relative">
               <div className="mb-4">
                 <div className="text-xs text-gray-500 font-space mb-1">
                   <span className="code-comment">{`<Card component="WorkingHours" />`}</span>
@@ -390,7 +390,7 @@ export default function ContactSection() {
                   ))}
                 </tbody>
               </table>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

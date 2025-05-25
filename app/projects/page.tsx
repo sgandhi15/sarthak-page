@@ -10,26 +10,43 @@ import AnimateOnScroll from "@/components/shared/animate-on-scroll";
 import { usePortfolio } from "@/components/providers";
 import { fuzzySearch } from "@/utils/fuzzy-search";
 import { getProjects, getTotalProjects, Project } from "@/app/data/projects";
+import { useSearchParams, useRouter } from "next/navigation";
 
 const ITEMS_PER_PAGE = 9;
 
 export default function ProjectsPage() {
   const { setCursorType } = usePortfolio();
-  const [searchQuery, setSearchQuery] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [filteredProjects, setFilteredProjects] = useState<Project[]>(
-    getProjects(1, ITEMS_PER_PAGE)
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState(
+    searchParams.get("search") || ""
   );
+  const [currentPage, setCurrentPage] = useState(() => {
+    if (typeof window !== "undefined") {
+      const savedPage = localStorage.getItem("projectsPage");
+      return savedPage ? Number(savedPage) : 1;
+    }
+    return 1;
+  });
+  const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
 
   const totalProjects = getTotalProjects();
   const totalPages = Math.ceil(totalProjects / ITEMS_PER_PAGE);
+
+  const updatePage = useCallback((page: number) => {
+    setCurrentPage(page);
+    if (typeof window !== "undefined") {
+      localStorage.setItem("projectsPage", page.toString());
+    }
+  }, []);
 
   const handleSearch = useCallback(
     (query: string) => {
       if (query === searchQuery) return;
 
       setSearchQuery(query);
-      setCurrentPage(1);
+      updatePage(1);
+
       if (!query) {
         const projects = getProjects(1, ITEMS_PER_PAGE);
         setFilteredProjects(projects);
@@ -43,14 +60,14 @@ export default function ProjectsPage() {
         setFilteredProjects(results.slice(0, ITEMS_PER_PAGE));
       }
     },
-    [searchQuery, totalProjects]
+    [searchQuery, totalProjects, updatePage]
   );
 
   const handlePageChange = useCallback(
     (page: number) => {
       if (page === currentPage) return;
 
-      setCurrentPage(page);
+      updatePage(page);
 
       if (!searchQuery) {
         const projects = getProjects(page, ITEMS_PER_PAGE);
@@ -68,12 +85,57 @@ export default function ProjectsPage() {
         setFilteredProjects(paginatedResults);
       }
     },
-    [currentPage, searchQuery, totalProjects]
+    [currentPage, searchQuery, totalProjects, updatePage]
   );
 
+  // Handle browser back/forward navigation
   useEffect(() => {
-    setFilteredProjects(getProjects(1, ITEMS_PER_PAGE));
-  }, []);
+    const handlePopState = (event: PopStateEvent) => {
+      if (event.state) {
+        const { page, query } = event.state;
+        setCurrentPage(page);
+        setSearchQuery(query || "");
+
+        if (!query) {
+          const projects = getProjects(page, ITEMS_PER_PAGE);
+          setFilteredProjects(projects);
+        } else {
+          const allProjects = getProjects(1, totalProjects);
+          const results = fuzzySearch(allProjects, query, [
+            "title",
+            "description",
+            "tags",
+          ]);
+          const start = (page - 1) * ITEMS_PER_PAGE;
+          const end = start + ITEMS_PER_PAGE;
+          const paginatedResults = results.slice(start, end);
+          setFilteredProjects(paginatedResults);
+        }
+      }
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, [totalProjects]);
+
+  // Initialize projects on mount
+  useEffect(() => {
+    if (!searchQuery) {
+      const projects = getProjects(currentPage, ITEMS_PER_PAGE);
+      setFilteredProjects(projects);
+    } else {
+      const allProjects = getProjects(1, totalProjects);
+      const results = fuzzySearch(allProjects, searchQuery, [
+        "title",
+        "description",
+        "tags",
+      ]);
+      const start = (currentPage - 1) * ITEMS_PER_PAGE;
+      const end = start + ITEMS_PER_PAGE;
+      const paginatedResults = results.slice(start, end);
+      setFilteredProjects(paginatedResults);
+    }
+  }, []); // Only run on mount
 
   const paginatedProjects = filteredProjects;
 
@@ -133,7 +195,7 @@ export default function ProjectsPage() {
                       className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                       loading="lazy"
                       placeholder="blur"
-                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4eHRoaHSQtJSEkMjU1LS0yMi4qLjg0OD4wMDw4QEBAPj4+QEBAPj4+QEBAPj4+QED/2wBDAR4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDABQODxIPDRQSEBIXFRQdHx4eHRoaHSQtJSEkMjU1LS0yMi4qLjg0OD4wMDw4QEBAPj4+QEBAPj4+QEBAPj4+QED/2wBDAR4eHh4eHh4eHh4eHh4eHh7/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#121212] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
