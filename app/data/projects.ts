@@ -84,68 +84,68 @@ export const projectsData: Project[] = [
     screenshots: [],
     featured: true,
   },
-  {
-    title: "Blog Comments Application",
-    description:
-      "A blog comments application built with React, Redux, and Axios, showcasing best practices in state management, API integration, and component architecture.",
-    image: "/placeholder.svg",
-    tags: [
-      "React",
-      "Redux",
-      "Redux Thunk",
-      "Axios",
-      "Lodash",
-      "React Testing Library",
-    ],
-    github: "#",
-    demo: "#",
-    slug: "blog-comments-application",
-    date: "July 2020",
-    duration: "2 months",
-    role: "Full Stack Developer",
-    client: "Personal Project",
-    detailedDescription: `
-        A modern React-Redux application that demonstrates the implementation of a blog comments system with user interactions. 
-        This project showcases best practices in state management, API integration, and component architecture using React and Redux.
-        
-        The application features a dynamic post listing with user information, Redux-powered state management, and asynchronous 
-        data fetching using Redux Thunk. The codebase is organized with a clean and modular component architecture.
-      `,
-    features: [
-      "Dynamic post listing with user information",
-      "Redux-powered state management",
-      "Asynchronous data fetching using Redux Thunk",
-      "Clean and modular component architecture",
-      "Responsive user interface",
-      "Comprehensive testing with React Testing Library",
-    ],
-    challenges: `
-        The main challenge was implementing efficient state management for complex user interactions. 
-        We solved this by using Redux with proper action creators and reducers.
-        
-        Another challenge was ensuring smooth real-time updates. We addressed this by implementing 
-        proper data fetching strategies and optimistic updates.
-      `,
-    techStack: {
-      frontend: ["React", "Redux", "Redux Thunk", "Axios"],
-      testing: ["React Testing Library", "Jest"],
-      tools: ["Lodash"],
-    },
-    screenshots: [
-      { url: "/placeholder.svg", caption: "Post List View" },
-      { url: "/placeholder.svg", caption: "Comment Section" },
-      { url: "/placeholder.svg", caption: "User Interface" },
-      { url: "/placeholder.svg", caption: "Mobile View" },
-    ],
-    featured: false,
-  },
+  // {
+  //   title: "Blog Comments Application",
+  //   description:
+  //     "A blog comments application built with React, Redux, and Axios, showcasing best practices in state management, API integration, and component architecture.",
+  //   image: "/placeholder.svg",
+  //   tags: [
+  //     "React",
+  //     "Redux",
+  //     "Redux Thunk",
+  //     "Axios",
+  //     "Lodash",
+  //     "React Testing Library",
+  //   ],
+  //   github: "#",
+  //   demo: "#",
+  //   slug: "blog-comments-application",
+  //   date: "July 2020",
+  //   duration: "2 months",
+  //   role: "Full Stack Developer",
+  //   client: "Personal Project",
+  //   detailedDescription: `
+  //       A modern React-Redux application that demonstrates the implementation of a blog comments system with user interactions.
+  //       This project showcases best practices in state management, API integration, and component architecture using React and Redux.
+
+  //       The application features a dynamic post listing with user information, Redux-powered state management, and asynchronous
+  //       data fetching using Redux Thunk. The codebase is organized with a clean and modular component architecture.
+  //     `,
+  //   features: [
+  //     "Dynamic post listing with user information",
+  //     "Redux-powered state management",
+  //     "Asynchronous data fetching using Redux Thunk",
+  //     "Clean and modular component architecture",
+  //     "Responsive user interface",
+  //     "Comprehensive testing with React Testing Library",
+  //   ],
+  //   challenges: `
+  //       The main challenge was implementing efficient state management for complex user interactions.
+  //       We solved this by using Redux with proper action creators and reducers.
+
+  //       Another challenge was ensuring smooth real-time updates. We addressed this by implementing
+  //       proper data fetching strategies and optimistic updates.
+  //     `,
+  //   techStack: {
+  //     frontend: ["React", "Redux", "Redux Thunk", "Axios"],
+  //     testing: ["React Testing Library", "Jest"],
+  //     tools: ["Lodash"],
+  //   },
+  //   screenshots: [
+  //     { url: "/placeholder.svg", caption: "Post List View" },
+  //     { url: "/placeholder.svg", caption: "Comment Section" },
+  //     { url: "/placeholder.svg", caption: "User Interface" },
+  //     { url: "/placeholder.svg", caption: "Mobile View" },
+  //   ],
+  //   featured: false,
+  // },
   {
     title: "Chat App",
     description:
       "A modern real-time chat application built with Node.js, Express, and Socket.IO that allows users to join chat rooms, send messages, and share their location with others in the same room.",
-    image: "/placeholder.svg",
+    image: "/projects/ca-1.png",
     tags: ["Node.js", "Express", "Socket.io", "JavaScript"],
-    github: "#",
+    github: "https://github.com/sgandhi15/chat-app",
     demo: "#",
     slug: "chat-app",
     date: "March 2022",
@@ -191,10 +191,8 @@ export const projectsData: Project[] = [
       deployment: ["Heroku"],
     },
     screenshots: [
-      { url: "/placeholder.svg", caption: "Chat Room Interface" },
-      { url: "/placeholder.svg", caption: "User List and Presence" },
-      { url: "/placeholder.svg", caption: "Location Sharing" },
-      { url: "/placeholder.svg", caption: "Mobile Responsive View" },
+      { url: "/projects/ca-1.png", caption: "Login Page" },
+      { url: "/projects/ca-2.png", caption: "Chat Room Interface" },
     ],
     featured: false,
   },
@@ -202,7 +200,7 @@ export const projectsData: Project[] = [
     title: "COVID-19 Tracker",
     description:
       "A responsive, real-time COVID-19 data visualization dashboard built with React that provides up-to-date statistics on the global pandemic.",
-    image: "/placeholder.svg",
+    image: "/projects/cvt.png",
     tags: [
       "React",
       "JavaScript",
@@ -214,7 +212,7 @@ export const projectsData: Project[] = [
       "API Integration",
       "Responsive Design",
     ],
-    github: "#",
+    github: "https://github.com/sgandhi15/covid-tracker",
     demo: "#",
     slug: "covid-tracker",
     date: "June 2021",
@@ -251,12 +249,7 @@ export const projectsData: Project[] = [
       styling: ["CSS Modules"],
       deployment: ["Netlify"],
     },
-    screenshots: [
-      { url: "/placeholder.svg", caption: "Global Dashboard View" },
-      { url: "/placeholder.svg", caption: "Country-Specific Data" },
-      { url: "/placeholder.svg", caption: "Interactive Charts" },
-      { url: "/placeholder.svg", caption: "Mobile Responsive View" },
-    ],
+    screenshots: [],
     featured: false,
   },
   {
@@ -321,192 +314,192 @@ export const projectsData: Project[] = [
     ],
     featured: false,
   },
-  {
-    title: "Health Card API",
-    description:
-      "A backend API for a digital Health Card system that facilitates seamless interaction between patients, doctors, and administrators.",
-    image: "/placeholder.svg",
-    tags: [
-      "Healthcare",
-      "Backend",
-      "API",
-      "Node.js",
-      "Express.js",
-      "MongoDB",
-      "Mongoose",
-      "JWT",
-      "Bcryptjs",
-      "Helmet.js",
-      "CORS",
-      "Morgan",
-    ],
-    github: "#",
-    demo: "#",
-    slug: "healthcare-backend",
-    date: "April 2021",
-    duration: "3 months",
-    role: "Backend Developer",
-    client: "Healthcare Provider",
-    detailedDescription: `
-        A robust and secure REST API backend for a digital Health Card system that modernizes healthcare management. 
-        The system digitizes medical records and streamlines healthcare service delivery through a well-structured API 
-        that serves patients, doctors, and administrators.
-        
-        The API implements role-based access control, secure authentication, and comprehensive data management features 
-        to ensure the privacy and security of sensitive healthcare information.
-      `,
-    features: [
-      "Multi-user role system (patients, doctors, administrators)",
-      "JWT-based authentication with role-based access control",
-      "Digital health records management",
-      "Appointment scheduling system",
-      "Medical history tracking",
-      "Secure password management",
-      "Comprehensive API documentation",
-      "Request logging and monitoring",
-    ],
-    challenges: `
-        The main challenge was implementing a secure and compliant healthcare data management system. We addressed this 
-        by implementing robust security measures, including JWT authentication, password hashing, and proper data encryption.
-        
-        Another challenge was designing an efficient database schema that could handle complex relationships between 
-        patients, doctors, and medical records. We solved this by implementing a well-structured MongoDB schema with 
-        proper indexing and relationships.
-      `,
-    techStack: {
-      backend: ["Node.js", "Express.js", "MongoDB", "Mongoose"],
-      security: ["JWT", "Bcryptjs", "Helmet.js", "CORS"],
-      tools: ["Morgan", "Nodemon", "Dotenv"],
-    },
-    screenshots: [
-      { url: "/placeholder.svg", caption: "API Documentation" },
-      { url: "/placeholder.svg", caption: "Database Schema" },
-      { url: "/placeholder.svg", caption: "Security Implementation" },
-      { url: "/placeholder.svg", caption: "API Endpoints" },
-    ],
-    featured: false,
-  },
-  {
-    title: "Health Card Frontend",
-    description:
-      "A frontend for a digital Health Card system that facilitates seamless interaction between patients, doctors, and administrators.",
-    image: "/placeholder.svg",
-    tags: [
-      "Healthcare",
-      "Frontend",
-      "React",
-      "TypeScript",
-      "TailwindCSS",
-      "Material-UI",
-    ],
-    github: "#",
-    demo: "#",
-    slug: "healthcare-frontend",
-    date: "April 2021",
-    duration: "3 months",
-    role: "Frontend Developer",
-    client: "Healthcare Provider",
-    detailedDescription: `
-        A modern, secure, and user-friendly healthcare management system built with React and Redux. This web application 
-        facilitates efficient communication and data management between healthcare providers, patients, and administrators.
-        
-        The system implements secure authentication, real-time data updates, and responsive design to ensure a seamless 
-        user experience across all devices and user roles.
-      `,
-    features: [
-      "Multi-user role system (Admin, Doctor, Patient)",
-      "JWT-based authentication with role-based access",
-      "Medical record management",
-      "Patient list management",
-      "Interactive chatbot assistance",
-      "Real-time data updates",
-      "Responsive design",
-      "Profile management",
-    ],
-    challenges: `
-        The main challenge was creating an intuitive interface that could handle complex healthcare data while remaining 
-        user-friendly. We solved this by implementing a clean, component-based architecture with clear navigation and 
-        data presentation.
-        
-        Another challenge was ensuring real-time updates across different user roles. We implemented efficient state 
-        management and data synchronization to provide instant updates while maintaining performance.
-      `,
-    techStack: {
-      frontend: ["React", "TypeScript", "Redux"],
-      ui: ["Material-UI", "TailwindCSS"],
-      tools: ["React Router", "Axios", "React Modal", "React Simple Chatbot"],
-    },
-    screenshots: [
-      { url: "/placeholder.svg", caption: "Admin Dashboard" },
-      { url: "/placeholder.svg", caption: "Doctor Portal" },
-      { url: "/placeholder.svg", caption: "Patient Interface" },
-      { url: "/placeholder.svg", caption: "Medical Records View" },
-    ],
-    featured: false,
-  },
-  {
-    title: "Hook Season Display",
-    description:
-      "A modern, responsive React application that determines and displays the current season based on the user's geolocation.",
-    image: "/placeholder.svg",
-    tags: [
-      "React",
-      "Hooks",
-      "Geolocation",
-      "Semantic UI",
-      "State Management",
-      "Axios",
-    ],
-    github: "#",
-    demo: "#",
-    slug: "hook-season-display",
-    date: "July 2020",
-    duration: "1 month",
-    role: "Frontend Developer",
-    client: "Personal Project",
-    detailedDescription: `
-        A creative React application that demonstrates the practical implementation of React hooks and geolocation API 
-        integration. The application automatically detects the user's location and displays the current season with 
-        appropriate visual themes and messages.
-        
-        The project showcases modern React practices, including custom hooks, state management, and responsive design 
-        principles.
-      `,
-    features: [
-      "Geolocation integration",
-      "Dynamic season detection",
-      "Season-themed UI",
-      "Custom React hooks",
-      "Responsive design",
-      "Error handling",
-      "Loading states",
-      "Cross-browser compatibility",
-    ],
-    challenges: `
-        The main challenge was implementing reliable geolocation detection across different browsers and devices. 
-        We solved this by implementing robust error handling and fallback mechanisms for when geolocation is not available.
-        
-        Another challenge was creating a smooth user experience during the geolocation request process. We implemented 
-        clear loading states and user feedback to ensure a seamless experience.
-      `,
-    techStack: {
-      frontend: ["React", "Semantic UI"],
-      hooks: ["useState", "useEffect", "Custom Hooks"],
-      apis: ["Browser Geolocation API"],
-    },
-    screenshots: [
-      { url: "/placeholder.svg", caption: "Summer Theme" },
-      { url: "/placeholder.svg", caption: "Winter Theme" },
-      { url: "/placeholder.svg", caption: "Loading State" },
-      { url: "/placeholder.svg", caption: "Error Handling" },
-    ],
-    featured: false,
-  },
+  // {
+  //   title: "Health Card API",
+  //   description:
+  //     "A backend API for a digital Health Card system that facilitates seamless interaction between patients, doctors, and administrators.",
+  //   image: "/placeholder.svg",
+  //   tags: [
+  //     "Healthcare",
+  //     "Backend",
+  //     "API",
+  //     "Node.js",
+  //     "Express.js",
+  //     "MongoDB",
+  //     "Mongoose",
+  //     "JWT",
+  //     "Bcryptjs",
+  //     "Helmet.js",
+  //     "CORS",
+  //     "Morgan",
+  //   ],
+  //   github: "#",
+  //   demo: "#",
+  //   slug: "healthcare-backend",
+  //   date: "April 2021",
+  //   duration: "3 months",
+  //   role: "Backend Developer",
+  //   client: "Healthcare Provider",
+  //   detailedDescription: `
+  //       A robust and secure REST API backend for a digital Health Card system that modernizes healthcare management.
+  //       The system digitizes medical records and streamlines healthcare service delivery through a well-structured API
+  //       that serves patients, doctors, and administrators.
+
+  //       The API implements role-based access control, secure authentication, and comprehensive data management features
+  //       to ensure the privacy and security of sensitive healthcare information.
+  //     `,
+  //   features: [
+  //     "Multi-user role system (patients, doctors, administrators)",
+  //     "JWT-based authentication with role-based access control",
+  //     "Digital health records management",
+  //     "Appointment scheduling system",
+  //     "Medical history tracking",
+  //     "Secure password management",
+  //     "Comprehensive API documentation",
+  //     "Request logging and monitoring",
+  //   ],
+  //   challenges: `
+  //       The main challenge was implementing a secure and compliant healthcare data management system. We addressed this
+  //       by implementing robust security measures, including JWT authentication, password hashing, and proper data encryption.
+
+  //       Another challenge was designing an efficient database schema that could handle complex relationships between
+  //       patients, doctors, and medical records. We solved this by implementing a well-structured MongoDB schema with
+  //       proper indexing and relationships.
+  //     `,
+  //   techStack: {
+  //     backend: ["Node.js", "Express.js", "MongoDB", "Mongoose"],
+  //     security: ["JWT", "Bcryptjs", "Helmet.js", "CORS"],
+  //     tools: ["Morgan", "Nodemon", "Dotenv"],
+  //   },
+  //   screenshots: [
+  //     { url: "/placeholder.svg", caption: "API Documentation" },
+  //     { url: "/placeholder.svg", caption: "Database Schema" },
+  //     { url: "/placeholder.svg", caption: "Security Implementation" },
+  //     { url: "/placeholder.svg", caption: "API Endpoints" },
+  //   ],
+  //   featured: false,
+  // },
+  // {
+  //   title: "Health Card Frontend",
+  //   description:
+  //     "A frontend for a digital Health Card system that facilitates seamless interaction between patients, doctors, and administrators.",
+  //   image: "/placeholder.svg",
+  //   tags: [
+  //     "Healthcare",
+  //     "Frontend",
+  //     "React",
+  //     "TypeScript",
+  //     "TailwindCSS",
+  //     "Material-UI",
+  //   ],
+  //   github: "#",
+  //   demo: "#",
+  //   slug: "healthcare-frontend",
+  //   date: "April 2021",
+  //   duration: "3 months",
+  //   role: "Frontend Developer",
+  //   client: "Healthcare Provider",
+  //   detailedDescription: `
+  //       A modern, secure, and user-friendly healthcare management system built with React and Redux. This web application
+  //       facilitates efficient communication and data management between healthcare providers, patients, and administrators.
+
+  //       The system implements secure authentication, real-time data updates, and responsive design to ensure a seamless
+  //       user experience across all devices and user roles.
+  //     `,
+  //   features: [
+  //     "Multi-user role system (Admin, Doctor, Patient)",
+  //     "JWT-based authentication with role-based access",
+  //     "Medical record management",
+  //     "Patient list management",
+  //     "Interactive chatbot assistance",
+  //     "Real-time data updates",
+  //     "Responsive design",
+  //     "Profile management",
+  //   ],
+  //   challenges: `
+  //       The main challenge was creating an intuitive interface that could handle complex healthcare data while remaining
+  //       user-friendly. We solved this by implementing a clean, component-based architecture with clear navigation and
+  //       data presentation.
+
+  //       Another challenge was ensuring real-time updates across different user roles. We implemented efficient state
+  //       management and data synchronization to provide instant updates while maintaining performance.
+  //     `,
+  //   techStack: {
+  //     frontend: ["React", "TypeScript", "Redux"],
+  //     ui: ["Material-UI", "TailwindCSS"],
+  //     tools: ["React Router", "Axios", "React Modal", "React Simple Chatbot"],
+  //   },
+  //   screenshots: [
+  //     { url: "/placeholder.svg", caption: "Admin Dashboard" },
+  //     { url: "/placeholder.svg", caption: "Doctor Portal" },
+  //     { url: "/placeholder.svg", caption: "Patient Interface" },
+  //     { url: "/placeholder.svg", caption: "Medical Records View" },
+  //   ],
+  //   featured: false,
+  // },
+  // {
+  //   title: "Hook Season Display",
+  //   description:
+  //     "A modern, responsive React application that determines and displays the current season based on the user's geolocation.",
+  //   image: "/placeholder.svg",
+  //   tags: [
+  //     "React",
+  //     "Hooks",
+  //     "Geolocation",
+  //     "Semantic UI",
+  //     "State Management",
+  //     "Axios",
+  //   ],
+  //   github: "#",
+  //   demo: "#",
+  //   slug: "hook-season-display",
+  //   date: "July 2020",
+  //   duration: "1 month",
+  //   role: "Frontend Developer",
+  //   client: "Personal Project",
+  //   detailedDescription: `
+  //       A creative React application that demonstrates the practical implementation of React hooks and geolocation API
+  //       integration. The application automatically detects the user's location and displays the current season with
+  //       appropriate visual themes and messages.
+
+  //       The project showcases modern React practices, including custom hooks, state management, and responsive design
+  //       principles.
+  //     `,
+  //   features: [
+  //     "Geolocation integration",
+  //     "Dynamic season detection",
+  //     "Season-themed UI",
+  //     "Custom React hooks",
+  //     "Responsive design",
+  //     "Error handling",
+  //     "Loading states",
+  //     "Cross-browser compatibility",
+  //   ],
+  //   challenges: `
+  //       The main challenge was implementing reliable geolocation detection across different browsers and devices.
+  //       We solved this by implementing robust error handling and fallback mechanisms for when geolocation is not available.
+
+  //       Another challenge was creating a smooth user experience during the geolocation request process. We implemented
+  //       clear loading states and user feedback to ensure a seamless experience.
+  //     `,
+  //   techStack: {
+  //     frontend: ["React", "Semantic UI"],
+  //     hooks: ["useState", "useEffect", "Custom Hooks"],
+  //     apis: ["Browser Geolocation API"],
+  //   },
+  //   screenshots: [
+  //     { url: "/placeholder.svg", caption: "Summer Theme" },
+  //     { url: "/placeholder.svg", caption: "Winter Theme" },
+  //     { url: "/placeholder.svg", caption: "Loading State" },
+  //     { url: "/placeholder.svg", caption: "Error Handling" },
+  //   ],
+  //   featured: false,
+  // },
   {
     title: "Indecision App",
     description:
       "A simple, responsive, and intuitive decision-making app built with React, JavaScript, and SCSS that helps users make decisions when they're stuck between multiple options.",
-    image: "/placeholder.svg",
+    image: "/projects/ia-1.png",
     tags: [
       "React",
       "JavaScript",
@@ -516,7 +509,7 @@ export const projectsData: Project[] = [
       "Express.js",
       "SCSS",
     ],
-    github: "#",
+    github: "https://github.com/sgandhi15/indecision-app",
     demo: "#",
     slug: "indecision-app",
     date: "June 2021",
@@ -554,10 +547,10 @@ export const projectsData: Project[] = [
       deployment: ["Heroku"],
     },
     screenshots: [
-      { url: "/placeholder.svg", caption: "Main Interface" },
-      { url: "/placeholder.svg", caption: "Option Selection" },
-      { url: "/placeholder.svg", caption: "Decision Modal" },
-      { url: "/placeholder.svg", caption: "Mobile View" },
+      { url: "/projects/ia-1.png", caption: "Main Interface" },
+      { url: "/projects/ia-2.png", caption: "Option Selection" },
+      { url: "/projects/ia-3.png", caption: "Error State" },
+      { url: "/projects/ia-4.png", caption: "Decision Modal" },
     ],
     featured: false,
   },
@@ -565,9 +558,9 @@ export const projectsData: Project[] = [
     title: "JS Captcha",
     description:
       "A modern, user-friendly CAPTCHA implementation built with vanilla JavaScript, HTML, and CSS that helps protect web forms from automated submissions.",
-    image: "/placeholder.svg",
+    image: "/projects/jsc.png",
     tags: ["JavaScript", "HTML", "CSS", "CAPTCHA"],
-    github: "#",
+    github: "https://github.com/sgandhi15/js-captcha",
     demo: "#",
     slug: "js-captcha",
     date: "April 2022",
@@ -603,12 +596,7 @@ export const projectsData: Project[] = [
       frontend: ["JavaScript", "HTML5", "CSS3"],
       tools: ["Font Awesome"],
     },
-    screenshots: [
-      { url: "/placeholder.svg", caption: "CAPTCHA Display" },
-      { url: "/placeholder.svg", caption: "Success State" },
-      { url: "/placeholder.svg", caption: "Error State" },
-      { url: "/placeholder.svg", caption: "Mobile View" },
-    ],
+    screenshots: [{ url: "/projects/jsc.png", caption: "CAPTCHA Display" }],
     featured: false,
   },
   {
@@ -796,59 +784,59 @@ export const projectsData: Project[] = [
     ],
     featured: true,
   },
-  {
-    title: "ParkVision - Smart Parking Management System",
-    description:
-      "An Android mobile application designed to bring efficiency and convenience to parking management systems, enabling real-time monitoring of parking spaces.",
-    image: "/placeholder.svg",
-    tags: ["Android", "Firebase", "AWS", "IoT", "Mobile", "Real-Time"],
-    github: "#",
-    demo: "#",
-    slug: "parkvision-archive",
-    date: "December 2024",
-    duration: "4 months",
-    role: "Mobile Developer",
-    client: "Personal Project",
-    detailedDescription: `
-        ParkVision is an Android mobile application that revolutionizes parking management by providing real-time monitoring 
-        of parking spaces. The app enables users to track parking space availability and receive instant notifications when 
-        spaces become available or occupied.
-        
-        The system integrates IoT sensors with a mobile interface, creating a seamless experience for both parking lot 
-        managers and users.
-      `,
-    features: [
-      "Real-time Parking Space Monitoring",
-      "Push Notifications for Space Availability",
-      "Phone Number Authentication",
-      "User Profile Management",
-      "Intuitive UI with Status Indicators",
-      "Offline Capability",
-      "Real-time Data Synchronization",
-      "Topic-based Notification System",
-    ],
-    challenges: `
-        The main challenge was implementing reliable real-time synchronization across devices. 
-        We solved this by implementing a robust Firebase Realtime Database structure and proper offline persistence.
-        
-        Another challenge was ensuring accurate parking space status updates. We addressed this by implementing 
-        a verification system and proper error handling for sensor data.
-      `,
-    techStack: {
-      frontend: ["Android Native", "Material Design"],
-      backend: ["Firebase", "AWS"],
-      database: ["Firebase Realtime Database", "AWS DynamoDB"],
-      tools: ["Firebase Cloud Messaging", "AWS IoT Core"],
-      security: ["Firebase Authentication", "AWS Cognito"],
-    },
-    screenshots: [
-      { url: "/placeholder.svg", caption: "Parking Space Overview" },
-      { url: "/placeholder.svg", caption: "Space Status Details" },
-      { url: "/placeholder.svg", caption: "Notification Settings" },
-      { url: "/placeholder.svg", caption: "User Profile" },
-    ],
-    featured: false,
-  },
+  // {
+  //   title: "ParkVision - Smart Parking Management System",
+  //   description:
+  //     "An Android mobile application designed to bring efficiency and convenience to parking management systems, enabling real-time monitoring of parking spaces.",
+  //   image: "/placeholder.svg",
+  //   tags: ["Android", "Firebase", "AWS", "IoT", "Mobile", "Real-Time"],
+  //   github: "#",
+  //   demo: "#",
+  //   slug: "parkvision-archive",
+  //   date: "December 2024",
+  //   duration: "4 months",
+  //   role: "Mobile Developer",
+  //   client: "Personal Project",
+  //   detailedDescription: `
+  //       ParkVision is an Android mobile application that revolutionizes parking management by providing real-time monitoring
+  //       of parking spaces. The app enables users to track parking space availability and receive instant notifications when
+  //       spaces become available or occupied.
+
+  //       The system integrates IoT sensors with a mobile interface, creating a seamless experience for both parking lot
+  //       managers and users.
+  //     `,
+  //   features: [
+  //     "Real-time Parking Space Monitoring",
+  //     "Push Notifications for Space Availability",
+  //     "Phone Number Authentication",
+  //     "User Profile Management",
+  //     "Intuitive UI with Status Indicators",
+  //     "Offline Capability",
+  //     "Real-time Data Synchronization",
+  //     "Topic-based Notification System",
+  //   ],
+  //   challenges: `
+  //       The main challenge was implementing reliable real-time synchronization across devices.
+  //       We solved this by implementing a robust Firebase Realtime Database structure and proper offline persistence.
+
+  //       Another challenge was ensuring accurate parking space status updates. We addressed this by implementing
+  //       a verification system and proper error handling for sensor data.
+  //     `,
+  //   techStack: {
+  //     frontend: ["Android Native", "Material Design"],
+  //     backend: ["Firebase", "AWS"],
+  //     database: ["Firebase Realtime Database", "AWS DynamoDB"],
+  //     tools: ["Firebase Cloud Messaging", "AWS IoT Core"],
+  //     security: ["Firebase Authentication", "AWS Cognito"],
+  //   },
+  //   screenshots: [
+  //     { url: "/placeholder.svg", caption: "Parking Space Overview" },
+  //     { url: "/placeholder.svg", caption: "Space Status Details" },
+  //     { url: "/placeholder.svg", caption: "Notification Settings" },
+  //     { url: "/placeholder.svg", caption: "User Profile" },
+  //   ],
+  //   featured: false,
+  // },
   // {
   //   title: "Sarthak Gandhi - Old Portfolio",
   //   description:
@@ -964,167 +952,167 @@ export const projectsData: Project[] = [
   //   ],
   //   featured: false,
   // },
-  {
-    title: "Sarthak Gandhi - Professional Resume (LaTeX)",
-    description:
-      "A LaTeX archive of my professional resume, showcasing experience as a Software Developer with expertise in full-stack development, system architecture, and cloud solutions.",
-    image: "/placeholder.svg",
-    tags: [
-      "LaTeX",
-      "Overleaf",
-      "Professional Portfolio",
-      "Software Developer",
-      "Full-Stack Developer",
-      "Cloud Solutions",
-      "System Architecture",
-      "Cloud Practitioner",
-    ],
-    github: "#",
-    demo: "#",
-    slug: "sarthak-resume-latex-archive",
-    date: "December 2024",
-    duration: "1 month",
-    role: "Technical Writer",
-    client: "Personal Project",
-    detailedDescription: `
-        A professional resume created using LaTeX and Overleaf, showcasing experience as a Software Developer. 
-        The resume highlights expertise in full-stack development, system architecture, and cloud solutions.
-        
-        The document is designed with attention to typography and layout, ensuring a professional appearance 
-        while maintaining readability and structure.
-      `,
-    features: [
-      "Professional Typography",
-      "Clean Layout Design",
-      "Section Organization",
-      "Skills Categorization",
-      "Experience Timeline",
-      "Education Details",
-      "Project Highlights",
-      "Contact Information",
-    ],
-    challenges: `
-        The main challenge was creating a clean and professional layout while maintaining flexibility for updates. 
-        We solved this by implementing a modular LaTeX structure with reusable components.
-        
-        Another challenge was ensuring consistent formatting across different PDF viewers. We addressed this by 
-        using standard LaTeX packages and proper document structure.
-      `,
-    techStack: {
-      tools: ["LaTeX", "Overleaf"],
-      content: ["Professional Resume", "Technical Documentation"],
-    },
-    screenshots: [
-      { url: "/placeholder.svg", caption: "Resume Overview" },
-      { url: "/placeholder.svg", caption: "Experience Section" },
-      { url: "/placeholder.svg", caption: "Skills Section" },
-      { url: "/placeholder.svg", caption: "Projects Section" },
-    ],
-    featured: false,
-  },
-  {
-    title: "Season Display",
-    description:
-      "A modern, responsive React application that dynamically displays seasonal content based on the user's geographical location.",
-    image: "/placeholder.svg",
-    tags: ["React", "Geolocation", "Semantic UI", "State Management", "Axios"],
-    github: "#",
-    demo: "#",
-    slug: "season-display",
-    date: "July 2020",
-    duration: "1 month",
-    role: "Frontend Developer",
-    client: "Personal Project",
-    detailedDescription: `
-        A modern React application that demonstrates the practical implementation of React components and geolocation 
-        services. The application automatically detects the user's location and displays seasonal content with 
-        appropriate visual themes.
-        
-        The project showcases modern React practices, including custom hooks, state management, and responsive design.
-      `,
-    features: [
-      "Real-time Location Detection",
-      "Dynamic Season Display",
-      "Responsive UI",
-      "Error Handling",
-      "Loading States",
-      "Season-themed Visuals",
-      "Cross-browser Compatibility",
-      "Clean Component Architecture",
-    ],
-    challenges: `
-        The main challenge was implementing reliable geolocation detection across different browsers. 
-        We solved this by implementing robust error handling and fallback mechanisms.
-        
-        Another challenge was creating a smooth user experience during location detection. We addressed this by 
-        implementing clear loading states and user feedback.
-      `,
-    techStack: {
-      frontend: ["React", "Semantic UI"],
-      hooks: ["useState", "useEffect", "Custom Hooks"],
-      apis: ["Browser Geolocation API"],
-    },
-    screenshots: [
-      { url: "/placeholder.svg", caption: "Summer Theme" },
-      { url: "/placeholder.svg", caption: "Winter Theme" },
-      { url: "/placeholder.svg", caption: "Loading State" },
-      { url: "/placeholder.svg", caption: "Error Handling" },
-    ],
-    featured: false,
-  },
-  {
-    title: "Simple Hook",
-    description:
-      "A demonstration project showcasing the implementation and usage of custom React hooks, built with React 16.13.1.",
-    image: "/projects/react-hook.jpg",
-    tags: [
-      "React",
-      "Hooks",
-      "Custom Hooks",
-      "API Integration",
-      "State Management",
-      "Component Composition",
-    ],
-    github: "https://github.com/sgandhi15/simple-hook",
-    demo: "#",
-    slug: "simple-hook",
-    date: "July 2020",
-    duration: "1 week",
-    role: "Frontend Developer",
-    client: "Personal Project",
-    detailedDescription: `
-        A demonstration project showcasing the implementation and usage of custom React hooks, built with React 16.13.1. 
-        This project serves as an educational example of how to create and utilize custom hooks in React applications.
-        
-        The project demonstrates the power and reusability of custom React hooks through a simple but practical example, 
-        featuring a custom useResources hook that fetches data from an API.
-      `,
-    features: [
-      "Custom Hook Implementation with useResources",
-      "Dynamic Resource Loading",
-      "Clean Component Architecture",
-      "API Integration with JSONPlaceholder",
-      "Reusable Components",
-      "State Management with Hooks",
-      "Error Handling",
-      "Loading States",
-    ],
-    challenges: `
-        The main challenge was creating a reusable hook that could handle different types of resources. 
-        We solved this by implementing a flexible hook that accepts resource types as parameters.
-        
-        Another challenge was ensuring proper error handling and loading states. We addressed this by 
-        implementing comprehensive error boundaries and loading indicators.
-      `,
-    techStack: {
-      frontend: ["React 16.13.1"],
-      tools: ["Axios"],
-      hooks: ["useState", "useEffect", "Custom Hooks"],
-      apis: ["JSONPlaceholder API"],
-    },
-    screenshots: [],
-    featured: false,
-  },
+  // {
+  //   title: "Sarthak Gandhi - Professional Resume (LaTeX)",
+  //   description:
+  //     "A LaTeX archive of my professional resume, showcasing experience as a Software Developer with expertise in full-stack development, system architecture, and cloud solutions.",
+  //   image: "/placeholder.svg",
+  //   tags: [
+  //     "LaTeX",
+  //     "Overleaf",
+  //     "Professional Portfolio",
+  //     "Software Developer",
+  //     "Full-Stack Developer",
+  //     "Cloud Solutions",
+  //     "System Architecture",
+  //     "Cloud Practitioner",
+  //   ],
+  //   github: "#",
+  //   demo: "#",
+  //   slug: "sarthak-resume-latex-archive",
+  //   date: "December 2024",
+  //   duration: "1 month",
+  //   role: "Technical Writer",
+  //   client: "Personal Project",
+  //   detailedDescription: `
+  //       A professional resume created using LaTeX and Overleaf, showcasing experience as a Software Developer.
+  //       The resume highlights expertise in full-stack development, system architecture, and cloud solutions.
+
+  //       The document is designed with attention to typography and layout, ensuring a professional appearance
+  //       while maintaining readability and structure.
+  //     `,
+  //   features: [
+  //     "Professional Typography",
+  //     "Clean Layout Design",
+  //     "Section Organization",
+  //     "Skills Categorization",
+  //     "Experience Timeline",
+  //     "Education Details",
+  //     "Project Highlights",
+  //     "Contact Information",
+  //   ],
+  //   challenges: `
+  //       The main challenge was creating a clean and professional layout while maintaining flexibility for updates.
+  //       We solved this by implementing a modular LaTeX structure with reusable components.
+
+  //       Another challenge was ensuring consistent formatting across different PDF viewers. We addressed this by
+  //       using standard LaTeX packages and proper document structure.
+  //     `,
+  //   techStack: {
+  //     tools: ["LaTeX", "Overleaf"],
+  //     content: ["Professional Resume", "Technical Documentation"],
+  //   },
+  //   screenshots: [
+  //     { url: "/placeholder.svg", caption: "Resume Overview" },
+  //     { url: "/placeholder.svg", caption: "Experience Section" },
+  //     { url: "/placeholder.svg", caption: "Skills Section" },
+  //     { url: "/placeholder.svg", caption: "Projects Section" },
+  //   ],
+  //   featured: false,
+  // },
+  // {
+  //   title: "Season Display",
+  //   description:
+  //     "A modern, responsive React application that dynamically displays seasonal content based on the user's geographical location.",
+  //   image: "/placeholder.svg",
+  //   tags: ["React", "Geolocation", "Semantic UI", "State Management", "Axios"],
+  //   github: "#",
+  //   demo: "#",
+  //   slug: "season-display",
+  //   date: "July 2020",
+  //   duration: "1 month",
+  //   role: "Frontend Developer",
+  //   client: "Personal Project",
+  //   detailedDescription: `
+  //       A modern React application that demonstrates the practical implementation of React components and geolocation
+  //       services. The application automatically detects the user's location and displays seasonal content with
+  //       appropriate visual themes.
+
+  //       The project showcases modern React practices, including custom hooks, state management, and responsive design.
+  //     `,
+  //   features: [
+  //     "Real-time Location Detection",
+  //     "Dynamic Season Display",
+  //     "Responsive UI",
+  //     "Error Handling",
+  //     "Loading States",
+  //     "Season-themed Visuals",
+  //     "Cross-browser Compatibility",
+  //     "Clean Component Architecture",
+  //   ],
+  //   challenges: `
+  //       The main challenge was implementing reliable geolocation detection across different browsers.
+  //       We solved this by implementing robust error handling and fallback mechanisms.
+
+  //       Another challenge was creating a smooth user experience during location detection. We addressed this by
+  //       implementing clear loading states and user feedback.
+  //     `,
+  //   techStack: {
+  //     frontend: ["React", "Semantic UI"],
+  //     hooks: ["useState", "useEffect", "Custom Hooks"],
+  //     apis: ["Browser Geolocation API"],
+  //   },
+  //   screenshots: [
+  //     { url: "/placeholder.svg", caption: "Summer Theme" },
+  //     { url: "/placeholder.svg", caption: "Winter Theme" },
+  //     { url: "/placeholder.svg", caption: "Loading State" },
+  //     { url: "/placeholder.svg", caption: "Error Handling" },
+  //   ],
+  //   featured: false,
+  // },
+  // {
+  //   title: "Simple Hook",
+  //   description:
+  //     "A demonstration project showcasing the implementation and usage of custom React hooks, built with React 16.13.1.",
+  //   image: "/projects/react-hook.jpg",
+  //   tags: [
+  //     "React",
+  //     "Hooks",
+  //     "Custom Hooks",
+  //     "API Integration",
+  //     "State Management",
+  //     "Component Composition",
+  //   ],
+  //   github: "https://github.com/sgandhi15/simple-hook",
+  //   demo: "#",
+  //   slug: "simple-hook",
+  //   date: "July 2020",
+  //   duration: "1 week",
+  //   role: "Frontend Developer",
+  //   client: "Personal Project",
+  //   detailedDescription: `
+  //       A demonstration project showcasing the implementation and usage of custom React hooks, built with React 16.13.1.
+  //       This project serves as an educational example of how to create and utilize custom hooks in React applications.
+
+  //       The project demonstrates the power and reusability of custom React hooks through a simple but practical example,
+  //       featuring a custom useResources hook that fetches data from an API.
+  //     `,
+  //   features: [
+  //     "Custom Hook Implementation with useResources",
+  //     "Dynamic Resource Loading",
+  //     "Clean Component Architecture",
+  //     "API Integration with JSONPlaceholder",
+  //     "Reusable Components",
+  //     "State Management with Hooks",
+  //     "Error Handling",
+  //     "Loading States",
+  //   ],
+  //   challenges: `
+  //       The main challenge was creating a reusable hook that could handle different types of resources.
+  //       We solved this by implementing a flexible hook that accepts resource types as parameters.
+
+  //       Another challenge was ensuring proper error handling and loading states. We addressed this by
+  //       implementing comprehensive error boundaries and loading indicators.
+  //     `,
+  //   techStack: {
+  //     frontend: ["React 16.13.1"],
+  //     tools: ["Axios"],
+  //     hooks: ["useState", "useEffect", "Custom Hooks"],
+  //     apis: ["JSONPlaceholder API"],
+  //   },
+  //   screenshots: [],
+  //   featured: false,
+  // },
   {
     title: "Stream App",
     description:
