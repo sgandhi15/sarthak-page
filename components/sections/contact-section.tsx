@@ -271,12 +271,6 @@ export default function ContactSection() {
                   <ScrambleText text="Send Message" />
                   <Send className="ml-2 w-4 h-4" />
                 </button>
-                <input
-                  type="checkbox"
-                  name="botcheck"
-                  className="hidden"
-                  style={{ display: "none" }}
-                />
               </div>
             </form>
           </div>
